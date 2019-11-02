@@ -1,4 +1,3 @@
 # HereProvider
 
-A description of this package.
-# here-provider
+Vapor provider for the HERE location API.
