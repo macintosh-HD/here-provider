@@ -139,7 +139,7 @@ extension Coordinate: CustomStringConvertible {
 extension Coordinate: Content {}
 
 public enum HereMode: String {
-    case retrieveAdresses, retrieveAreas, retrieveLandmarks, retrieveAll, trackPosition
+    case retrieveAddresses, retrieveAreas, retrieveLandmarks, retrieveAll, trackPosition
 }
 
 public enum HereAddressAttributes: String {
