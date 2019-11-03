@@ -1,3 +1,5 @@
+import Vapor
+
 typealias DistanceType = Double
 
 enum DistanceUnitType: String, Codable {
