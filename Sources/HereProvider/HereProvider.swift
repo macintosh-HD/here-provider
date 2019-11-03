@@ -11,6 +11,8 @@ public struct HereConfig: Service {
 }
 
 public final class HereProvider: Provider {
+    public init() {}
+    
     public func didBoot(_ container: Container) throws -> Future<Void> {
         return .done(on: container)
     }
