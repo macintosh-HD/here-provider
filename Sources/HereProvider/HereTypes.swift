@@ -133,6 +133,8 @@ extension Coordinate: CustomStringConvertible {
     }
 }
 
+extension Coordinate: Content {}
+
 enum HereMode: String {
     case retrieveAdresses, retrieveAreas, retrieveLandmarks, retrieveAll, trackPosition
 }
