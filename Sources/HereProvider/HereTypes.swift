@@ -132,7 +132,7 @@ public struct Coordinate {
 
 extension Coordinate: CustomStringConvertible {
     public var description: String {
-        return "\(lon.description),\(lat.description)"
+        return "\(lat.description),\(lon.description)"
     }
 }
 
