@@ -1,134 +1,134 @@
 import Vapor
 
-struct LocationType: Content {
-    let locationid: String
-    let locationtype: LocationTypeType
-    let name: String?
-    let displayposition: GeoCoordinateType?
-    let navigationposition: [GeoCoordinateType]
-    let mapview: GeoBoundingBoxType?
-    let shape: GeoShapeType?
+public struct LocationType: Content {
+    public let locationid: String
+    public let locationtype: LocationTypeType
+    public let name: String?
+    public let displayposition: GeoCoordinateType?
+    public let navigationposition: [GeoCoordinateType]
+    public let mapview: GeoBoundingBoxType?
+    public let shape: GeoShapeType?
     
-    let address: AddressType
-    let related: [RelatedLocationType]
-    let linkinfo: LinkInfoType?
-    let admininfo: AdminInfoType?
-    let addressnames: AddressNamesType?
-    let addressdetails: AddressDetailsType?
-    let mapreference: MapReferenceType?
+    public let address: AddressType
+    public let related: [RelatedLocationType]
+    public let linkinfo: LinkInfoType?
+    public let admininfo: AdminInfoType?
+    public let addressnames: AddressNamesType?
+    public let addressdetails: AddressDetailsType?
+    public let mapreference: MapReferenceType?
 }
 
-struct AddressType: Content {
-    let label: String?
-    let country: CountryCodeType
-    let state: String?
-    let county: String?
-    let city: String?
-    let district: String?
-    let subdistrict: String?
-    let street: String?
-    let housenumber: String?
-    let postalcode: String?
-    let building: String?
-    let addressline: [String]
-    let additionaldata: [String:String]
-    let unit: String?
+public struct AddressType: Content {
+    public let label: String?
+    public let country: CountryCodeType
+    public let state: String?
+    public let county: String?
+    public let city: String?
+    public let district: String?
+    public let subdistrict: String?
+    public let street: String?
+    public let housenumber: String?
+    public let postalcode: String?
+    public let building: String?
+    public let addressline: [String]
+    public let additionaldata: [String:String]
+    public let unit: String?
     
-    let distancemarker: DistanceMarkerType?
+    public let distancemarker: DistanceMarkerType?
 }
 
-struct DistanceMarkerType: Content {
-    let value: String
-    let offset: Double?
-    let unit: DistanceUnitType?
-    let directionOnSign: String?
+public struct DistanceMarkerType: Content {
+    public let value: String
+    public let offset: Double?
+    public let unit: DistanceUnitType?
+    public let directionOnSign: String?
 }
 
-struct RelatedLocationType: Content {
-    let type: RelationshipEnumType
-    let matchtype: LocationMatchTypeType?
-    let routedistance: DistanceType?
-    let direction: HeadingType?
+public struct RelatedLocationType: Content {
+    public let type: RelationshipEnumType
+    public let matchtype: LocationMatchTypeType?
+    public let routedistance: DistanceType?
+    public let direction: HeadingType?
     
-    let location: LocationType
+    public let location: LocationType
 }
 
-struct LinkInfoType: Content {
-    let functionalclass: FunctionalClassType?
-    let traveldirection: [CardinalDirectionType]
-    let speedcategory: SpeedCategoryType?
-    let speedlimit: [SpeedLimitType]
-    let linkflags: [LinkFlagType]
-    let accessflags: [LinkAccessFlagType]
+public struct LinkInfoType: Content {
+    public let functionalclass: FunctionalClassType?
+    public let traveldirection: [CardinalDirectionType]
+    public let speedcategory: SpeedCategoryType?
+    public let speedlimit: [SpeedLimitType]
+    public let linkflags: [LinkFlagType]
+    public let accessflags: [LinkAccessFlagType]
 }
 
-struct AdminInfoType: Content {
-    let localtime: Date
-    let currency: CurrencyType?
-    let drivingside: DrivingSideType?
-    let systemofmeasure: SystemOfMeasurementType?
+public struct AdminInfoType: Content {
+    public let localtime: Date
+    public let currency: CurrencyType?
+    public let drivingside: DrivingSideType?
+    public let systemofmeasure: SystemOfMeasurementType?
     
-    let timezone: TimeZoneType?
+    public let timezone: TimeZoneType?
 }
 
-struct TimeZoneType: Content {
-    let id: String
-    let offset: Int
-    let rawoffset: Int
-    let nameshort: String
-    let namelong: String
-    let namedstshort: String
-    let nmaedstlong: String
-    let indaylighttime: Bool
-    let dstsavings: Int
+public struct TimeZoneType: Content {
+    public let id: String
+    public let offset: Int
+    public let rawoffset: Int
+    public let nameshort: String
+    public let namelong: String
+    public let namedstshort: String
+    public let nmaedstlong: String
+    public let indaylighttime: Bool
+    public let dstsavings: Int
 }
 
-struct AddressNamesType: Content {
-    let country: [LocalizedNameType]
-    let state: [LocalizedNameType]
-    let county: [LocalizedNameType]
-    let city: [LocalizedNameType]
-    let district: [LocalizedNameType]
-    let subdistrict: [LocalizedNameType]
-    let street: [LocalizedNameType]
+public struct AddressNamesType: Content {
+    public let country: [LocalizedNameType]
+    public let state: [LocalizedNameType]
+    public let county: [LocalizedNameType]
+    public let city: [LocalizedNameType]
+    public let district: [LocalizedNameType]
+    public let subdistrict: [LocalizedNameType]
+    public let street: [LocalizedNameType]
 }
 
-struct AddressDetailsType: Content {
-    let label: String?
-    let countrycode: CountryCodeType?
-    let country: LocalizedNameType?
-    let state: LocalizedNameType?
-    let county: LocalizedNameType?
-    let city: LocalizedNameType?
-    let district: LocalizedNameType?
-    let street: LocalizedNameType?
-    let housenumber: LocalizedNameType?
-    let postalcode: String?
-    let building: LocalizedNameType?
+public struct AddressDetailsType: Content {
+    public let label: String?
+    public let countrycode: CountryCodeType?
+    public let country: LocalizedNameType?
+    public let state: LocalizedNameType?
+    public let county: LocalizedNameType?
+    public let city: LocalizedNameType?
+    public let district: LocalizedNameType?
+    public let street: LocalizedNameType?
+    public let housenumber: LocalizedNameType?
+    public let postalcode: String?
+    public let building: LocalizedNameType?
     
-    let streetdetails: StreetDetailType?
+    public let streetdetails: StreetDetailType?
 }
 
-struct StreetDetailType: Content {
-    let basename: String?
-    let streettype: String?
-    let streettypebefore: Bool?
-    let streettypeattached: Bool?
-    let prefix: String?
-    let suffix: String?
-    let direction: String?
+public struct StreetDetailType: Content {
+    public let basename: String?
+    public let streettype: String?
+    public let streettypebefore: Bool?
+    public let streettypeattached: Bool?
+    public let prefix: String?
+    public let suffix: String?
+    public let direction: String?
 }
 
-struct MapReferenceType: Content {
-    let referenceid: String?
-    let mapversion: String?
-    let mapid: String?
-    let sidofstreet: SideOfStreetType?
-    let spot: Double?
-    let stateid: String?
-    let countyid: String?
-    let cityid: String?
-    let districtid: String?
-    let buildingid: String?
-    let addressid: String?
+public struct MapReferenceType: Content {
+    public let referenceid: String?
+    public let mapversion: String?
+    public let mapid: String?
+    public let sidofstreet: SideOfStreetType?
+    public let spot: Double?
+    public let stateid: String?
+    public let countyid: String?
+    public let cityid: String?
+    public let districtid: String?
+    public let buildingid: String?
+    public let addressid: String?
 }

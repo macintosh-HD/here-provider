@@ -129,13 +129,13 @@ public struct Coordinate {
     let bearing: Int = 0
 }
 
-public extension Coordinate: CustomStringConvertible {
+extension Coordinate: CustomStringConvertible {
     public var description: String {
         return "\(lon.description),\(lat.description)"
     }
 }
 
-public extension Coordinate: Content {}
+extension Coordinate: Content {}
 
 public enum HereMode: String {
     case retrieveAdresses, retrieveAreas, retrieveLandmarks, retrieveAll, trackPosition
