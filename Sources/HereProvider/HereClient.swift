@@ -20,7 +20,7 @@ public final class HereClient: Service {
         
         return httpClient.get(requestURL).flatMap { response in
             do {
-                return try response.content.decode(SearchResponseType.self)
+                return try response.content.decode(HereResponse.self)
             } catch {
                 throw Abort(.internalServerError)
             }
@@ -32,7 +32,7 @@ public final class HereClient: Service {
         
         return httpClient.get(requestURL).flatMap { response in
             do {
-                return try response.content.decode(SearchResponseType.self)
+                return try response.content.decode(HereResponse.self)
             } catch {
                 throw Abort(.internalServerError)
             }
