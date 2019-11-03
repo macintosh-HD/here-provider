@@ -40,7 +40,7 @@ public struct SearchResultType: Content {
     
     public let location: LocationType
     public let parsedRequest: ParsedRequestType?
-    public let matchQuality: LocationMatchTypeType?
+    public let matchQuality: LocationMatchQualityType?
 }
 
 public struct LocationMatchQualityType: Content {
