@@ -63,7 +63,7 @@ public struct LinkInfoType: Content {
 }
 
 public struct AdminInfoType: Content {
-    public let localTime: Date
+    public let localTime: String
     public let currency: CurrencyType?
     public let drivingSide: DrivingSideType?
     public let systemOfMeasure: SystemOfMeasurementType?

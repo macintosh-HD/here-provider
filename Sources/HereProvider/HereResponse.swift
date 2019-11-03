@@ -11,7 +11,7 @@ public struct SearchResponseType: Content {
 
 public struct SearchResponseMetaInfoType: Content {
     public let requestId: String?
-    public let timestamp: Date
+    public let timestamp: String
     public let nextPageInformation: String?
     public let previousPageInformation: String?
     public let additionalData: [String:String]?
