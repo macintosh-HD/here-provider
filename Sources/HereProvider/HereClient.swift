@@ -18,7 +18,11 @@ public final class HereClient: Service {
         let requestURL = try createRequestURL(endpoint: geocodingEndpoint, format: .json, appID: appID, appCode: appCode, searchtext: address)
         
         return httpClient.get(requestURL).flatMap { response in
-            return try response.content.decode(SearchResponseType.self)
+            do {
+                return try response.content.decode(SearchResponseType.self)
+            } catch {
+                throw Abort(.internalServerError)
+            }
         }
     }
     
@@ -26,7 +30,11 @@ public final class HereClient: Service {
         let requestURL = try createRequestURL(endpoint: reverseGeocodingEndpoint, format: .json, appID: appID, appCode: appCode, pos: coordinate, mode: .retrieveAdresses, proxRadius: proxRadius, maxResults: maxResults)
         
         return httpClient.get(requestURL).flatMap { response in
-            return try response.content.decode(SearchResponseType.self)
+            do {
+                return try response.content.decode(SearchResponseType.self)
+            } catch {
+                throw Abort(.internalServerError)
+            }
         }
     }
     
