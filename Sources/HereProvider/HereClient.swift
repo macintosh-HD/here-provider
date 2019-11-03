@@ -15,6 +15,7 @@ public final class HereClient: Service {
     }
     
     public func geocode(address: String) throws -> Future<SearchResponseType> {
+        let address = address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let requestURL = try createRequestURL(endpoint: geocodingEndpoint, format: .json, appID: appID, appCode: appCode, searchtext: address)
         
         return httpClient.get(requestURL).flatMap { response in
@@ -41,7 +42,7 @@ public final class HereClient: Service {
     private func createRequestURL(endpoint: String, format: HereFormats, appID: String, appCode: String, pos: Coordinate? = nil, mode: HereMode? = nil, proxRadius: Int? = nil, minResults: Int? = nil, maxResults: Int? = nil, addressAttributes: [HereAddressAttributes] = [], language: String? = nil, level: HereLevel? = nil, locationAttributes: [HereLocationAttributes] = [], responseAttributes: [HereResponseAttributes] = [], searchtext: String? = nil) throws -> URL {
         var urlString = endpoint + format.rawValue
         
-        urlString += "?app_id=\(appID)&app_code=\(appCode)"
+        urlString += "?app_id=\(appID)&app_code=\(appCode)&jsonattributes=1"
         
         if let posNotNil = pos {
             urlString += "&pos=\(posNotNil.description),0"
@@ -102,6 +103,7 @@ public final class HereClient: Service {
         }
         
         guard let result = URL(string: urlString) else {
+            debugPrint(urlString)
             throw Abort(.internalServerError)
         }
         

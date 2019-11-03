@@ -1,7 +1,7 @@
 import Vapor
 
 public struct SearchResponseType: Content {
-    public let metainfo: SearchResponseMetaInfoType
+    public let metaInfo: SearchResponseMetaInfoType
     public let view: [SearchResultsViewType]
 }
 
