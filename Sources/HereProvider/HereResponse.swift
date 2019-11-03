@@ -6,67 +6,67 @@ public struct SearchResponseType: Content {
 }
 
 public struct SearchResponseMetaInfoType: Content {
-    let requestid: [String]
-    let timestamp: Date
-    let nextpageinformation: [String]
-    let previouspageinformation: [String]
-    let additionaldata: [String:String]
+    public let requestid: [String]
+    public let timestamp: Date
+    public let nextpageinformation: [String]
+    public let previouspageinformation: [String]
+    public let additionaldata: [String:String]
 }
 
 protocol SearchResponseViewType: Content {
-    var viewid: String { get }
+    public var viewid: String { get }
 }
 
 public struct SearchResultsViewType: SearchResponseViewType, Content {
-    let viewid: String
-    let performedsearch: [SearchRequestType]
-    let result: [SearchResultType]
+    public let viewid: String
+    public let performedsearch: [SearchRequestType]
+    public let result: [SearchResultType]
 }
 
 public struct SearchRequestType: Content {}
 
 public struct SearchResultType: Content {
-    let relevance: Double
-    let distance: [DistanceType]
-    let direction: [HeadingType]
-    let matchlevel: [MatchLevelType]
-    let matchtype: [LocationMatchTypeType]
-    let matchcode: [MatchCodeType]
-    let additionaldata: [String:String]
+    public let relevance: Double
+    public let distance: [DistanceType]
+    public let direction: [HeadingType]
+    public let matchlevel: [MatchLevelType]
+    public let matchtype: [LocationMatchTypeType]
+    public let matchcode: [MatchCodeType]
+    public let additionaldata: [String:String]
     
-    let location: LocationType
-    let parsedrequest: [ParsedRequestType]
-    let matchquality: [LocationMatchQualityType]
+    public let location: LocationType
+    public let parsedrequest: [ParsedRequestType]
+    public let matchquality: [LocationMatchQualityType]
 }
 
 public struct LocationMatchQualityType: Content {
-    let name: [Double]
-    let country: [Double]
-    let state: [Double]
-    let county: [Double]
-    let city: [Double]
-    let district: [Double]
-    let subdistrict: [Double]
-    let street: [Double]
-    let housenumber: [Double]
-    let postalcode: [Double]
-    let building: [Double]
-    let unit: [Double]
+    public let name: [Double]
+    public let country: [Double]
+    public let state: [Double]
+    public let county: [Double]
+    public let city: [Double]
+    public let district: [Double]
+    public let subdistrict: [Double]
+    public let street: [Double]
+    public let housenumber: [Double]
+    public let postalcode: [Double]
+    public let building: [Double]
+    public let unit: [Double]
 }
 
 public struct ParsedRequestType: Content {
-    let name: [String]
-    let label: [String]
-    let country: [String]
-    let state: [String]
-    let county: [String]
-    let city: [String]
-    let district: [String]
-    let subdistrict: [String]
-    let street: [String]
-    let housenumber: [String]
-    let postalcode: [String]
-    let building: [String]
-    let addressline: [String]
-    let additionaldata: [String:String]
+    public let name: [String]
+    public let label: [String]
+    public let country: [String]
+    public let state: [String]
+    public let county: [String]
+    public let city: [String]
+    public let district: [String]
+    public let subdistrict: [String]
+    public let street: [String]
+    public let housenumber: [String]
+    public let postalcode: [String]
+    public let building: [String]
+    public let addressline: [String]
+    public let additionaldata: [String:String]
 }
