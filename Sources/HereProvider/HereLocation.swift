@@ -31,7 +31,7 @@ public struct AddressType: Content {
     public let postalCode: String?
     public let building: String?
     public let addressLine: [String]?
-    public let additionalData: [String:String]?
+    public let additionalData: [KeyValuePairType<String, String>]?
     public let unit: String?
     
     public let distanceMarker: DistanceMarkerType?

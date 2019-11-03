@@ -56,9 +56,10 @@ public struct WKTShapeType: Codable {
     let value: String
 }
 
-//struct KeyValuePairType {
-//    <#fields#>
-//}
+public struct KeyValuePairType<X,Y>: Content where X: Content, Y: Content {
+    let key: X
+    let value: Y
+}
 
 public struct LocalizedNameType: Codable {
     let value: String
@@ -103,7 +104,7 @@ public enum SystemOfMeasurementType: String, Codable {
 }
 
 public enum LocationTypeType: String, Codable {
-    case area, address, trail, park, lake, mountainPeek, volcano, river, golfCourse, industrialComplex, island, woodland, cemetery, canalWaterChannerl, bayHarbor, airport, hospital, sportsComplex, shoppingCentre, universityCollege, nativeAmericanReservation, railroad, militaryBase, parkingLot, parkingGarage, animalPark, beach, distanceMarker
+    case area, address, trail, park, lake, mountainPeek, volcano, river, golfCourse, industrialComplex, island, woodland, cemetery, canalWaterChannerl, bayHarbor, airport, hospital, sportsComplex, shoppingCentre, universityCollege, nativeAmericanReservation, railroad, militaryBase, parkingLot, parkingGarage, animalPark, beach, distanceMarker, point
 }
 
 public enum LocationMatchTypeType: String, Codable {

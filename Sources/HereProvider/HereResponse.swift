@@ -14,15 +14,15 @@ public struct SearchResponseMetaInfoType: Content {
     public let timestamp: String
     public let nextPageInformation: String?
     public let previousPageInformation: String?
-    public let additionalData: [String:String]?
+    public let additionalData: [KeyValuePairType<String, String>]?
 }
 
 protocol SearchResponseViewType: Content {
-    var viewId: String { get }
+    var viewId: Int { get }
 }
 
 public struct SearchResultsViewType: SearchResponseViewType, Content {
-    public let viewId: String
+    public let viewId: Int
     public let performedSearch: SearchRequestType?
     public let result: [SearchResultType]?
 }
@@ -36,7 +36,7 @@ public struct SearchResultType: Content {
     public let matchLevel: MatchLevelType?
     public let matchType: LocationMatchTypeType?
     public let matchCode: MatchCodeType?
-    public let additionalData: [String:String]?
+    public let additionalData: [KeyValuePairType<String, String>]?
     
     public let location: LocationType
     public let parsedRequest: ParsedRequestType?
@@ -72,5 +72,5 @@ public struct ParsedRequestType: Content {
     public let postalCode: String?
     public let building: String?
     public let addressLine: [String]?
-    public let additionalData: [String:String]?
+    public let additionalData: [KeyValuePairType<String, String>]?
 }
