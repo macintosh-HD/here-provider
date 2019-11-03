@@ -1,7 +1,11 @@
 import Vapor
 
-public struct HereResponse: Content {
+public struct HereSearchResponse: Content {
     public let response: SearchResponseType?
+}
+
+public struct HereMultiReverseResponse: Content {
+    public let response: MultiSearchResponseType?
 }
 
 public struct SearchResponseType: Content {
@@ -9,12 +13,29 @@ public struct SearchResponseType: Content {
     public let view: [SearchResultsViewType]?
 }
 
-public struct SearchResponseMetaInfoType: Content {
+public struct MultiSearchResponseType: Content {
+    public let metaInfo: MultiSearchResponseMetaInfoType
+    public let item: [MultiSearchResponseItemType]?
+}
+
+public protocol HereResponseMetaInfoType: Content {
+    var requestId: String? { get }
+    var timestamp: String { get }
+    var additionalData: [KeyValuePairType<String, String>]?
+}
+
+public struct SearchResponseMetaInfoType: HereResponseMetaInfoType, Content {
     public let requestId: String?
     public let timestamp: String
     public let nextPageInformation: String?
     public let previousPageInformation: String?
     public let additionalData: [KeyValuePairType<String, String>]?
+}
+
+public struct MultiSearchResponseMetaInfoType: HereResponseMetaInfoType, Content {
+    public let requestId: String?
+    public let timestamp: String
+    public let additionalData: [KeyValuePairs<String, String>]?
 }
 
 protocol SearchResponseViewType: Content {
@@ -24,6 +45,11 @@ protocol SearchResponseViewType: Content {
 public struct SearchResultsViewType: SearchResponseViewType, Content {
     public let viewId: Int
     public let performedSearch: SearchRequestType?
+    public let result: [SearchResultType]?
+}
+
+public struct MultiSearchResponseItemType {
+    public let itemId: String
     public let result: [SearchResultType]?
 }
 

@@ -6,7 +6,9 @@ public final class HereClient: Service {
     let appCode: String
     
     let geocodingEndpoint = "https://geocoder.api.here.com/6.2/geocode."
+    let landmarkEndpoint = "https://geocoder.api.here.com/6.2/search."
     let reverseGeocodingEndpoint = "https://reverse.geocoder.api.here.com/6.2/reversegeocode."
+    let multiReverseGeocodingEndpoint = "https://reverse.geocoder.api.here.com/6.2/multi-reversegeocode."
     
     public init(httpClient: Client, config: HereConfig) {
         self.httpClient = httpClient
