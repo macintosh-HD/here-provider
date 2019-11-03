@@ -36,8 +36,8 @@ public struct GeoCoordinateType: Codable {
 }
 
 public struct GeoBoundingBoxType: Codable {
-    let topleft: GeoCoordinateType
-    let bottomright: GeoCoordinateType
+    let topLeft: GeoCoordinateType
+    let bottomRight: GeoCoordinateType
 }
 
 public struct GeoProximityType: Codable {

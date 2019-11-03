@@ -14,7 +14,7 @@ public final class HereClient: Service {
         self.appCode = config.appCode
     }
     
-    public func geocode(address: String) throws -> Future<SearchResponseType> {
+    public func geocode(address: String) throws -> Future<HereResponse> {
         let address = address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let requestURL = try createRequestURL(endpoint: geocodingEndpoint, format: .json, appID: appID, appCode: appCode, searchtext: address)
         
@@ -27,7 +27,7 @@ public final class HereClient: Service {
         }
     }
     
-    public func reverseGeocode(coordinate: Coordinate, proxRadius: Int = 5, maxResults: Int = 1) throws -> Future<SearchResponseType> {
+    public func reverseGeocode(coordinate: Coordinate, proxRadius: Int = 5, maxResults: Int = 1) throws -> Future<HereResponse> {
         let requestURL = try createRequestURL(endpoint: reverseGeocodingEndpoint, format: .json, appID: appID, appCode: appCode, pos: coordinate, mode: .retrieveAdresses, proxRadius: proxRadius, maxResults: maxResults)
         
         return httpClient.get(requestURL).flatMap { response in
