@@ -5,7 +5,7 @@ public struct SearchResponseType: Content {
     let view: [SearchResultsViewType]
 }
 
-struct SearchResponseMetaInfoType: Content {
+public struct SearchResponseMetaInfoType: Content {
     let requestid: [String]
     let timestamp: Date
     let nextpageinformation: [String]
@@ -17,15 +17,15 @@ protocol SearchResponseViewType: Content {
     var viewid: String { get }
 }
 
-struct SearchResultsViewType: SearchResponseViewType, Content {
+public struct SearchResultsViewType: SearchResponseViewType, Content {
     let viewid: String
     let performedsearch: [SearchRequestType]
     let result: [SearchResultType]
 }
 
-struct SearchRequestType: Content {}
+public struct SearchRequestType: Content {}
 
-struct SearchResultType: Content {
+public struct SearchResultType: Content {
     let relevance: Double
     let distance: [DistanceType]
     let direction: [HeadingType]
@@ -39,7 +39,7 @@ struct SearchResultType: Content {
     let matchquality: [LocationMatchQualityType]
 }
 
-struct LocationMatchQualityType: Content {
+public struct LocationMatchQualityType: Content {
     let name: [Double]
     let country: [Double]
     let state: [Double]
@@ -54,7 +54,7 @@ struct LocationMatchQualityType: Content {
     let unit: [Double]
 }
 
-struct ParsedRequestType: Content {
+public struct ParsedRequestType: Content {
     let name: [String]
     let label: [String]
     let country: [String]
