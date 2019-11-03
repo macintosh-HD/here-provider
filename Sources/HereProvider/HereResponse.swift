@@ -14,7 +14,7 @@ public struct SearchResponseMetaInfoType: Content {
 }
 
 protocol SearchResponseViewType: Content {
-    public var viewid: String { get }
+    var viewid: String { get }
 }
 
 public struct SearchResultsViewType: SearchResponseViewType, Content {

@@ -1,14 +1,14 @@
 import Vapor
 
-typealias DistanceType = Double
+public typealias DistanceType = Double
 
-enum DistanceUnitType: String, Codable {
+public enum DistanceUnitType: String, Codable {
     case mi, km
 }
 
-typealias HeadingType = Double
+public typealias HeadingType = Double
 
-enum CardinalDirectionType: String, Codable {
+public enum CardinalDirectionType: String, Codable {
     case north = "N"
     case east = "E"
     case south = "S"
@@ -19,40 +19,40 @@ enum CardinalDirectionType: String, Codable {
     case northwest = "NW"
 }
 
-typealias CountryCodeType = String
+public typealias CountryCodeType = String
 
-enum SideOfStreetType: String, Codable {
+public enum SideOfStreetType: String, Codable {
     case left, right, neither
 }
 
-enum ShapeFormatType: String, Codable {
+public enum ShapeFormatType: String, Codable {
     case WKT
 }
 
-struct GeoCoordinateType: Codable {
+public struct GeoCoordinateType: Codable {
     let latitude: Double
     let longitude: Double
     let altitude: Double?
 }
 
-struct GeoBoundingBoxType: Codable {
+public struct GeoBoundingBoxType: Codable {
     let topleft: GeoCoordinateType
     let bottomright: GeoCoordinateType
 }
 
-struct GeoProximityType: Codable {
+public struct GeoProximityType: Codable {
     let center: GeoCoordinateType
     let radius: Double
 }
 
-struct GeoPositionType: Codable {
+public struct GeoPositionType: Codable {
     let coordinate: GeoCoordinateType
     let heading: Double?
 }
 
-typealias GeoShapeType = WKTShapeType
+public typealias GeoShapeType = WKTShapeType
 
-struct WKTShapeType: Codable {
+public struct WKTShapeType: Codable {
     let value: String
 }
 
@@ -60,66 +60,66 @@ struct WKTShapeType: Codable {
 //    <#fields#>
 //}
 
-struct LocalizedNameType: Codable {
+public struct LocalizedNameType: Codable {
     let value: String
     let language: String
 }
 
-typealias FunctionalClassType = UInt8
+public typealias FunctionalClassType = UInt8
 
-enum SpeedCategoryType: String, Codable {
+public enum SpeedCategoryType: String, Codable {
     case SC1, SC2, SC3, SC4, SC5, SC6, SC7, SC8
 }
 
-struct SpeedLimitType: Codable {
+public struct SpeedLimitType: Codable {
     let value: Int
     let unit: SpeedLimitUnitType
 }
 
-enum SpeedLimitUnitType: String, Codable {
+public enum SpeedLimitUnitType: String, Codable {
     case mph, kph
 }
 
-enum LinkFlagType: String, Codable {
+public enum LinkFlagType: String, Codable {
     case ControlledAccess, MultiDigitized, Frontage, Paved, Ramp, Private, Tollway, PoiAccess, FourWheelDrive, ParkingLotRoad, CarpoolRoad, Reversible, ExpressLand
 }
 
-enum LinkAccessFlagType: String, Codable {
+public enum LinkAccessFlagType: String, Codable {
     case Automobiles, Buses, Taxis, Carpools, Pedestrians, Trucks, Deliveries, EmergencyVehicle, ThroughTraffic, Motorcycles
 }
 
-enum RelationshipEnumType: String, Codable {
+public enum RelationshipEnumType: String, Codable {
     case nearByDistanceMarker, nearByAddress, microPointAddress
 }
 
-typealias CurrencyType = String
+public typealias CurrencyType = String
 
-enum DrivingSideType: String, Codable {
+public enum DrivingSideType: String, Codable {
     case left, right
 }
 
-enum SystemOfMeasurementType: String, Codable {
+public enum SystemOfMeasurementType: String, Codable {
     case imperial, metric
 }
 
-enum LocationTypeType: String, Codable {
+public enum LocationTypeType: String, Codable {
     case area, address, trail, park, lake, mountainPeek, volcano, river, golfCourse, industrialComplex, island, woodland, cemetery, canalWaterChannerl, bayHarbor, airport, hospital, sportsComplex, shoppingCentre, universityCollege, nativeAmericanReservation, railroad, militaryBase, parkingLot, parkingGarage, animalPark, beach, distanceMarker
 }
 
-enum LocationMatchTypeType: String, Codable {
+public enum LocationMatchTypeType: String, Codable {
     case pointAddress, interpolated
 }
 
-enum MatchLevelType: String, Codable {
+public enum MatchLevelType: String, Codable {
     case country, state, county, city, district, street, intersection, houseNumber, postalCode, landmark
 }
 
-enum MatchCodeType: String, Codable {
+public enum MatchCodeType: String, Codable {
     case exact, ambiguous, upHierarchy, ambiguousHierarchy
 }
 
 // MARK: Request Types
-enum HereFormats: String {
+public enum HereFormats: String {
     case json, xml
 }
 
@@ -129,19 +129,19 @@ public struct Coordinate {
     let bearing: Int = 0
 }
 
-extension Coordinate: CustomStringConvertible {
+public extension Coordinate: CustomStringConvertible {
     public var description: String {
         return "\(lon.description),\(lat.description)"
     }
 }
 
-extension Coordinate: Content {}
+public extension Coordinate: Content {}
 
-enum HereMode: String {
+public enum HereMode: String {
     case retrieveAdresses, retrieveAreas, retrieveLandmarks, retrieveAll, trackPosition
 }
 
-enum HereAddressAttributes: String {
+public enum HereAddressAttributes: String {
     case country = "ctr"
     case state = "sta"
     case county = "cty"
@@ -155,11 +155,11 @@ enum HereAddressAttributes: String {
     case additionalData = "add"
 }
 
-enum HereLevel: String {
+public enum HereLevel: String {
     case country, state, county, city, district, postalCode
 }
 
-enum HereLocationAttributes: String {
+public enum HereLocationAttributes: String {
     case address = "ar"
     case mapReference = "mr"
     case mapView = "mv"
@@ -174,7 +174,7 @@ enum HereLocationAttributes: String {
     case relatedNearByAddress = "rn"
 }
 
-enum HereResponseAttributes: String {
+public enum HereResponseAttributes: String {
     case performedSearch = "ps"
     case matchQuality = "mq"
     case matchType = "mt"
