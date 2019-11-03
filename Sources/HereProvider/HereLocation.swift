@@ -5,12 +5,12 @@ public struct LocationType: Content {
     public let locationType: LocationTypeType
     public let name: String?
     public let displayPosition: GeoCoordinateType?
-    public let navigationPosition: [GeoCoordinateType]
+    public let navigationPosition: [GeoCoordinateType]?
     public let mapView: GeoBoundingBoxType?
     public let shape: GeoShapeType?
     
     public let address: AddressType
-    public let related: [RelatedLocationType]
+    public let related: [RelatedLocationType]?
     public let linkInfo: LinkInfoType?
     public let adminInfo: AdminInfoType?
     public let addressNames: AddressNamesType?
@@ -30,8 +30,8 @@ public struct AddressType: Content {
     public let houseNumber: String?
     public let postalCode: String?
     public let building: String?
-    public let addressLine: [String]
-    public let additionalData: [String:String]
+    public let addressLine: [String]?
+    public let additionalData: [String:String]?
     public let unit: String?
     
     public let distanceMarker: DistanceMarkerType?
@@ -55,11 +55,11 @@ public struct RelatedLocationType: Content {
 
 public struct LinkInfoType: Content {
     public let functionalClass: FunctionalClassType?
-    public let travelDirection: [CardinalDirectionType]
+    public let travelDirection: [CardinalDirectionType]?
     public let speedCategory: SpeedCategoryType?
-    public let speedLimit: [SpeedLimitType]
-    public let linkFlags: [LinkFlagType]
-    public let accessFlags: [LinkAccessFlagType]
+    public let speedLimit: [SpeedLimitType]?
+    public let linkFlags: [LinkFlagType]?
+    public let accessFlags: [LinkAccessFlagType]?
 }
 
 public struct AdminInfoType: Content {
@@ -84,13 +84,13 @@ public struct TimeZoneType: Content {
 }
 
 public struct AddressNamesType: Content {
-    public let country: [LocalizedNameType]
-    public let state: [LocalizedNameType]
-    public let county: [LocalizedNameType]
-    public let city: [LocalizedNameType]
-    public let district: [LocalizedNameType]
-    public let subdistrict: [LocalizedNameType]
-    public let street: [LocalizedNameType]
+    public let country: [LocalizedNameType]?
+    public let state: [LocalizedNameType]?
+    public let county: [LocalizedNameType]?
+    public let city: [LocalizedNameType]?
+    public let district: [LocalizedNameType]?
+    public let subdistrict: [LocalizedNameType]?
+    public let street: [LocalizedNameType]?
 }
 
 public struct AddressDetailsType: Content {
