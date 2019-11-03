@@ -28,7 +28,7 @@ public final class HereClient: Service {
     }
     
     public func reverseGeocode(coordinate: Coordinate, proxRadius: Int = 5, maxResults: Int = 1) throws -> Future<HereResponse> {
-        let requestURL = try createRequestURL(endpoint: reverseGeocodingEndpoint, format: .json, appID: appID, appCode: appCode, pos: coordinate, mode: .retrieveAdresses, proxRadius: proxRadius, maxResults: maxResults)
+        let requestURL = try createRequestURL(endpoint: reverseGeocodingEndpoint, format: .json, appID: appID, appCode: appCode, pos: coordinate, mode: .retrieveAddresses, proxRadius: proxRadius, maxResults: maxResults)
         
         return httpClient.get(requestURL).flatMap { response in
             do {
