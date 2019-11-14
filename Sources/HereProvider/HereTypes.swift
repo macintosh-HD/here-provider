@@ -1,12 +1,64 @@
 import Vapor
 
+// MARK: Aliase
 public typealias DistanceType = Double
+
+public typealias HeadingType = Double
+
+public typealias CountryCodeType = String
+
+public typealias GeoShapeType = WKTShapeType
+
+public typealias FunctionalClassType = UInt8
+
+public typealias CurrencyType = String
+
+public typealias SpeedType = Double
+
+public typealias WeightType = Double
+
+public typealias AccuracyType = Double
+
+public typealias AngleType = Double
+
+public typealias CoordinatesArrayType = [String]
+
+public typealias GeoPolygonType = CoordinatesArrayType
+
+public typealias GeoPolylineType = CoordinatesArrayType
+
+public typealias LatitudeType = Double
+
+public typealias LongitudeType = Double
+
+public typealias AltitudeType = Double
+
+public typealias LanguageCodeType = String
+
+public typealias CountryCodeType = String
+
+public typealias ElementReferenceType = String
+
+public typealias LinkIdType = String
+
+public typealias ExternalResourceTypeType = String
+
+public typealias FilenameType = String
+
+public typealias TransitAccessIdType = String
+
+public typealias LinkIdArrayType = String
+
+public typealias RecurringTimeIntervalsCombinationType = String
+
+// MARK: Enums
+public enum TextSemanticsType: String, Content {
+    case synonym, exonym, unclassified
+}
 
 public enum DistanceUnitType: String, Codable {
     case mi, km
 }
-
-public typealias HeadingType = Double
 
 public enum CardinalDirectionType: String, Codable {
     case north = "N"
@@ -19,8 +71,6 @@ public enum CardinalDirectionType: String, Codable {
     case northwest = "NW"
 }
 
-public typealias CountryCodeType = String
-
 public enum SideOfStreetType: String, Codable {
     case left, right, neither
 }
@@ -29,52 +79,8 @@ public enum ShapeFormatType: String, Codable {
     case WKT
 }
 
-public struct GeoCoordinateType: Codable {
-    let latitude: Double
-    let longitude: Double
-    let altitude: Double?
-}
-
-public struct GeoBoundingBoxType: Codable {
-    let topLeft: GeoCoordinateType
-    let bottomRight: GeoCoordinateType
-}
-
-public struct GeoProximityType: Codable {
-    let center: GeoCoordinateType
-    let radius: Double
-}
-
-public struct GeoPositionType: Codable {
-    let coordinate: GeoCoordinateType
-    let heading: Double?
-}
-
-public typealias GeoShapeType = WKTShapeType
-
-public struct WKTShapeType: Codable {
-    let value: String
-}
-
-public struct KeyValuePairType<X,Y>: Content where X: Content, Y: Content {
-    let key: X
-    let value: Y
-}
-
-public struct LocalizedNameType: Codable {
-    let value: String
-    let language: String
-}
-
-public typealias FunctionalClassType = UInt8
-
 public enum SpeedCategoryType: String, Codable {
     case SC1, SC2, SC3, SC4, SC5, SC6, SC7, SC8
-}
-
-public struct SpeedLimitType: Codable {
-    let value: Int
-    let unit: SpeedLimitUnitType
 }
 
 public enum SpeedLimitUnitType: String, Codable {
@@ -92,8 +98,6 @@ public enum LinkAccessFlagType: String, Codable {
 public enum RelationshipEnumType: String, Codable {
     case nearByDistanceMarker, nearByAddress, microPointAddress
 }
-
-public typealias CurrencyType = String
 
 public enum DrivingSideType: String, Codable {
     case left, right
@@ -117,6 +121,59 @@ public enum MatchLevelType: String, Codable {
 
 public enum MatchCodeType: String, Codable {
     case exact, ambiguous, upHierarchy, ambiguousHierarchy
+}
+
+// MARK: ExternalResourceType
+public struct ExternalResourceType: Content {
+    public let resourceType: ExternalResourceTypeType
+    public let filename: FilenameType
+}
+
+// MARK: UnsignedNumericRange
+public struct UnsignedNumericRange: Content {
+    public let min: UInt
+    public let max: UInt?
+}
+
+// MARK: geometry types
+public struct GeoCoordinateType: Codable {
+    let latitude: LatitudeType
+    let longitude: LongitudeType
+    let altitude: Double?
+}
+
+public struct GeoBoundingBoxType: Codable {
+    let topLeft: GeoCoordinateType
+    let bottomRight: GeoCoordinateType
+}
+
+public struct GeoProximityType: Codable {
+    let center: GeoCoordinateType
+    let radius: Double
+}
+
+public struct GeoPositionType: Codable {
+    let coordinate: GeoCoordinateType
+    let heading: Double?
+}
+
+public struct WKTShapeType: Codable {
+    let value: String
+}
+
+public struct KeyValuePairType<X,Y>: Content where X: Content, Y: Content {
+    let key: X
+    let value: Y
+}
+
+public struct LocalizedNameType: Codable {
+    let value: String
+    let language: String
+}
+
+public struct SpeedLimitType: Codable {
+    let value: Int
+    let unit: SpeedLimitUnitType
 }
 
 // MARK: Request Types

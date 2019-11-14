@@ -10,6 +10,9 @@ public final class HereClient: Service {
     let reverseGeocodingEndpoint = "https://reverse.geocoder.api.here.com/6.2/reversegeocode."
     let multiReverseGeocodingEndpoint = "https://reverse.geocoder.api.here.com/6.2/multi-reversegeocode."
     
+    let routeBase = "https://route.api.here.com/routing/7.2/"
+    let calculateRouteEndpoint = routeBase + "calculateroute."
+    
     public init(httpClient: Client, config: HereConfig) {
         self.httpClient = httpClient
         self.appID = config.appId
@@ -110,5 +113,9 @@ public final class HereClient: Service {
         }
         
         return result
+    }
+    
+    public func calculateRoute() throws -> Future<HereRouteResponse> {
+        
     }
 }
