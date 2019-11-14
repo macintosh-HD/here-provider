@@ -10,8 +10,11 @@ public final class HereClient: Service {
     let reverseGeocodingEndpoint = "https://reverse.geocoder.api.here.com/6.2/reversegeocode."
     let multiReverseGeocodingEndpoint = "https://reverse.geocoder.api.here.com/6.2/multi-reversegeocode."
     
-    let routeBase = "https://route.api.here.com/routing/7.2/"
-    let calculateRouteEndpoint = routeBase + "calculateroute."
+    let calculateRouteEndpoint = "https://route.api.here.com/routing/7.2/calculateroute."
+    let getRouteEndpoint = "https://route.api.here.com/routing/7.2/getroute."
+    let getRoutingZonesEndpoint = "https://route.api.here.com/routing/7.2/getroutingzones."
+    let calculateIsonlineEndpoint = "https://isoline.route.api.here.com/routing/7.2/calculateisoline."
+    let calculateMatrixEndpoint = "https://matrix.route.api.here.com/routing/7.2/calculatematrix."
     
     public init(httpClient: Client, config: HereConfig) {
         self.httpClient = httpClient
@@ -19,7 +22,7 @@ public final class HereClient: Service {
         self.appCode = config.appCode
     }
     
-    public func geocode(address: String) throws -> Future<HereResponse> {
+    public func geocode(address: String) throws -> Future<HereSearchResponse> {
         let address = address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let requestURL = try createRequestURL(endpoint: geocodingEndpoint, format: .json, appID: appID, appCode: appCode, searchtext: address)
         
@@ -32,7 +35,7 @@ public final class HereClient: Service {
         }
     }
     
-    public func reverseGeocode(coordinate: Coordinate, proxRadius: Int = 5, maxResults: Int = 1) throws -> Future<HereResponse> {
+    public func reverseGeocode(coordinate: Coordinate, proxRadius: Int = 5, maxResults: Int = 1) throws -> Future<HereSearchResponse> {
         let requestURL = try createRequestURL(endpoint: reverseGeocodingEndpoint, format: .json, appID: appID, appCode: appCode, pos: coordinate, mode: .retrieveAddresses, proxRadius: proxRadius, maxResults: maxResults)
         
         return httpClient.get(requestURL).flatMap { response in

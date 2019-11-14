@@ -21,7 +21,7 @@ public struct MultiSearchResponseType: Content {
 public protocol HereResponseMetaInfoType: Content {
     var requestId: String? { get }
     var timestamp: String { get }
-    var additionalData: [KeyValuePairType<String, String>]?
+    var additionalData: [KeyValuePairType<String, String>]? { get }
 }
 
 public struct SearchResponseMetaInfoType: HereResponseMetaInfoType, Content {
@@ -35,7 +35,7 @@ public struct SearchResponseMetaInfoType: HereResponseMetaInfoType, Content {
 public struct MultiSearchResponseMetaInfoType: HereResponseMetaInfoType, Content {
     public let requestId: String?
     public let timestamp: String
-    public let additionalData: [KeyValuePairs<String, String>]?
+    public let additionalData: [KeyValuePairType<String, String>]?
 }
 
 protocol SearchResponseViewType: Content {
