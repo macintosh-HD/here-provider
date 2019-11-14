@@ -48,7 +48,7 @@ public struct SearchResultsViewType: SearchResponseViewType, Content {
     public let result: [SearchResultType]?
 }
 
-public struct MultiSearchResponseItemType {
+public struct MultiSearchResponseItemType: Content {
     public let itemId: String
     public let result: [SearchResultType]?
 }
