@@ -28,7 +28,7 @@ public final class HereClient: Service {
         
         return httpClient.get(requestURL).flatMap { response in
             do {
-                return try response.content.decode(HereResponse.self)
+                return try response.content.decode(HereSearchResponse.self)
             } catch {
                 throw Abort(.internalServerError)
             }
@@ -40,7 +40,7 @@ public final class HereClient: Service {
         
         return httpClient.get(requestURL).flatMap { response in
             do {
-                return try response.content.decode(HereResponse.self)
+                return try response.content.decode(HereSearchResponse.self)
             } catch {
                 throw Abort(.internalServerError)
             }
@@ -118,7 +118,7 @@ public final class HereClient: Service {
         return result
     }
     
-    public func calculateRoute() throws -> Future<HereRouteResponse> {
+    public func calculateRoute() throws -> Future<CalculateRouteResponseType> {
         
     }
 }
