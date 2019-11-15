@@ -143,9 +143,9 @@ public struct PublicTransportStopType: Content {
 
 public struct DynamicSpeedInfoType: Content {
     public let trafficSpeed: SpeedType
-    public let trafficTime: DurationTime
+    public let trafficTime: DurationType
     public let baseSpeed: SpeedType
-    public let baseTime: DurationTime
+    public let baseTime: DurationType
     public let jamFactor: Double
 }
 
@@ -265,15 +265,15 @@ public struct RouteLegType: Content {
     public let start: WaypointType
     public let end: WaypointType
     public let length: DistanceType
-    public let travelTime: DurationTime
+    public let travelTime: DurationType
     public let maneuver: [ManeuverType]
     public let link: [RouteLinkType]
     public let boundingBox: GeoBoundingBoxType
     public let shape: GeoPolylineType
     public let firstPoint: Int
     public let lastPoint: Int
-    public let trafficTime: DurationTime
-    public let baseTime: DurationTime
+    public let trafficTime: DurationType
+    public let baseTime: DurationType
     public let summary: RouteSummaryType
     public let subLegSummary: [RouteSummaryType]
 }
