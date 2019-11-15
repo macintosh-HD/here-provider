@@ -69,6 +69,8 @@ extension GeoWaypointParameterType: CustomStringConvertible {
                 }
             }
         }
+        
+        return output
     }
 }
 
