@@ -435,6 +435,8 @@ public struct VehicleRestrictionType: Content {
     public let licensePlatePattern: LicensePlatePatternType
 }
 
+public typealias LicensePlatePatternType = String
+
 // MARK: InvidentType
 public struct IncidentType: Content {
     public let validityPeriod: RecurringTimeIntervalsCombinationType
