@@ -21,7 +21,13 @@ public final class HereProvider: Provider {
         services.register { (container) -> HereClient in
             let httpClient = try container.make(Client.self)
             let config = try container.make(HereConfig.self)
-            return HereClient(httpClient: httpClient, config: config)
+            return HereGeocodingClient(httpClient: httpClient, config: config)
+        }
+        
+        services.register { (container) -> HereClient in
+            let httpClient = try container.make(Client.self)
+            let config = try container.make(HereConfig.self)
+            return HereRoutingClient(httpClient: httpClient, config: config)
         }
     }
 }

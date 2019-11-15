@@ -1,6 +1,6 @@
 import Vapor
 
-public final class HereClient: Service {
+public final class HereGeocodingClient: Service {
     let httpClient: Client
     let appID: String
     let appCode: String
@@ -9,12 +9,6 @@ public final class HereClient: Service {
     let landmarkEndpoint = "https://geocoder.api.here.com/6.2/search."
     let reverseGeocodingEndpoint = "https://reverse.geocoder.api.here.com/6.2/reversegeocode."
     let multiReverseGeocodingEndpoint = "https://reverse.geocoder.api.here.com/6.2/multi-reversegeocode."
-    
-    let calculateRouteEndpoint = "https://route.api.here.com/routing/7.2/calculateroute."
-    let getRouteEndpoint = "https://route.api.here.com/routing/7.2/getroute."
-    let getRoutingZonesEndpoint = "https://route.api.here.com/routing/7.2/getroutingzones."
-    let calculateIsonlineEndpoint = "https://isoline.route.api.here.com/routing/7.2/calculateisoline."
-    let calculateMatrixEndpoint = "https://matrix.route.api.here.com/routing/7.2/calculatematrix."
     
     public init(httpClient: Client, config: HereConfig) {
         self.httpClient = httpClient
@@ -71,7 +65,7 @@ public final class HereClient: Service {
         if let maxResultsNotNil = maxResults, maxResultsNotNil >= minResults ?? 1 {
             urlString += "&maxresults=\(maxResultsNotNil)"
         }
-
+        
         if addressAttributes.count > 0 {
             var addressAttributesList: String = addressAttributes.reduce("") { (res, adat) -> String in
                 res + "," + adat.rawValue
@@ -116,9 +110,5 @@ public final class HereClient: Service {
         }
         
         return result
-    }
-    
-    public func calculateRoute() throws -> Future<CalculateRouteResponseType> {
-        
     }
 }
