@@ -1,6 +1,6 @@
 import Vapor
 
-public protocol WaypointParameterType {}
+public protocol WaypointParameterType: CustomStringConvertible {}
 
 // MARK: GeoWaypointParameterType
 public struct GeoWaypointParameterType: WaypointParameterType {

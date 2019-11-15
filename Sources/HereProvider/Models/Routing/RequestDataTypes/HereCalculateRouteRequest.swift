@@ -1,8 +1,6 @@
 import Vapor
 
-public class RouteCalculationRequest: Content {
-    public let appId: String?
-    public let appCode: String?
+public struct RouteCalculationRequest: Content {
     public let waypoints: [WaypointParameterType]
     public let mode: RoutingModeType
     public let requestId: String?
@@ -45,7 +43,7 @@ public class RouteCalculationRequest: Content {
     public let shippedHazardousGoods: [HazardousGoodTypeType] = []
     public let limitedWeight: Int?
     public let weightPerAxle: Int?
-    public let weightsPerAxleGroup: [(TruckAxleGroupType, Int)]?
+    public let weightsPerAxleGroup: [(TruckAxleGroupType, Int)] = []
     public let height: Int?
     public let width: Int?
     public let length: Int?
@@ -59,8 +57,6 @@ public class RouteCalculationRequest: Content {
 
 extension RouteCalculationRequest: HereRequest {
     var requestParameters: String {
-        var parameters = "?app_id=\(self.appId)&app_code=\(self.appCode)"
-        
         for waypoint in 0..<self.waypoints.count {
             parameters += "&waypoint\(waypoint)=\(self.waypoints[waypoint].description)"
         }
@@ -268,7 +264,7 @@ extension RouteCalculationRequest: HereRequest {
         }
         
         if let licensePlate = self.licensePlate {
-            parameters += "&licenseplate=\(licensePlate.rawValue)"
+            parameters += "&licenseplate=\(licensePlate)"
         }
         
         if let maxNumberOfChanges = self.maxNumberOfChanges {
