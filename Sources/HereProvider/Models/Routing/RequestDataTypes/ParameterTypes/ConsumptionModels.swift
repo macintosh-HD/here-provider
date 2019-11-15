@@ -4,9 +4,9 @@ public enum ConsumptionModelType {
     case `default`, standard
 }
 
-public protocol ConsomptionModelDetailType {}
+public protocol ConsumptionModelDetailType {}
 
-public struct StandardConsumptionModel: ConsomptionModelDetailType, CustomStringConvertible {
+public struct StandardConsumptionModel: ConsumptionModelDetailType, CustomStringConvertible {
     public let speed: [Double]
     public let ascent: Double
     public let descent: Double

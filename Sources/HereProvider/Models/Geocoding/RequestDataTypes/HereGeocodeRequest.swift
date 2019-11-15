@@ -1,12 +1,12 @@
 public protocol HereGeocodeRequest {
-    var additionalData: [KeyValuePairs<String, String>] { get }
+    var additionalData: [KeyValuePairType<String, String>] { get }
     var addressAttributes: HereAddressAttributes { get }
     var appID: String { get }
     var appCode: String { get }
     var gen: Int { get }
     var jsonAttributes: Int { get }
     var jsonCallback: String { get }
-    var langugage: LangugageCodeType { get }
+    var langugage: LanguageCodeType { get }
     var locationAttributes: HereLocationAttributes { get }
     var maxResults: Int { get }
     var pageInformation: String { get }

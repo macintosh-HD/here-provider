@@ -24,7 +24,7 @@ public enum RouteAttributeType: String, Content {
 }
 
 // MARK: RouteLegAttributes
-public enum RouteLegAttributes: String, Content {
+public enum RouteLegAttributeType: String, Content {
     case waypoint = "wp"
     case maneuvers = "mn"
     case links = "li"

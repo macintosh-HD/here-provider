@@ -1,7 +1,9 @@
 import Vapor
 
+public protocol WaypointParameterType {}
+
 // MARK: GeoWaypointParameterType
-public struct GeoWaypointParameterType {
+public struct GeoWaypointParameterType: WaypointParameterType {
     public let geo: GeoWaypointParameterComponentType?
     public let type: GeoWaypointParameterComponentTypeType?
     public let stopOverDuration: DurationType?
@@ -79,7 +81,7 @@ extension GeoWaypointParameterType: CustomStringConvertible {
 }
 
 // MARK: NavigationWaypointParameterType
-public struct NavigationWaypointParameterTypeWithStreetPosition {
+public struct NavigationWaypointParameterTypeWithStreetPosition: WaypointParameterType {
     public let street: StreetParameterType = .street
     public let type: NavigationWaypointParameterTypeType?
     public let stopOverDuration: DurationType?
@@ -152,7 +154,7 @@ extension NavigationWaypointParameterTypeWithStreetPosition: CustomStringConvert
 }
 
 // MARK: Navigation
-public struct NavigationWaypointParameterTypeWithLinkPosition {
+public struct NavigationWaypointParameterTypeWithLinkPosition: WaypointParameterType {
     public let link: LinkParameterType = .link
     public let type: NavigationWaypointParameterTypeType?
     public let stopOverDuration: DurationType?

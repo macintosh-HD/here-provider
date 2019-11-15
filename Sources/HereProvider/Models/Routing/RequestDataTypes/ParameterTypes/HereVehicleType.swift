@@ -12,3 +12,15 @@ public struct VehicleType: CustomStringConvertible {
 public enum EngineType: String, Content {
     case diesel, gasoline, electric
 }
+
+public enum TruckType: String, Content {
+    case truck, tractorTruck
+}
+
+public enum LicensePlate: Int, Content {
+    case lastCharacter(Int)
+}
+
+public enum TunnelCategory: String, Content {
+    case B, C, D, E
+}

@@ -3,7 +3,7 @@ import Vapor
 public class RouteCalculationRequest: Content {
     public let appId: String?
     public let appCode: String?
-    public let waypoints: [Waypoint]
+    public let waypoints: [WaypointParameterType]
     public let mode: RoutingModeType
     public let requestId: String?
     public let avoidAreas: [GeoBoundingBoxType] = []
@@ -19,10 +19,10 @@ public class RouteCalculationRequest: Content {
     public let alternatives: Int?
     public let metricSystem: SystemOfMeasurementType?
     public let viewBounds: GeoBoundingBoxType?
-    public let resolution: ResolutionType?
+    public let resolution: (UInt, UInt)?
     public let instructionFormat: InstructionFormatType?
-    public let language: [Langugage] = []
-    public let jsonAttributes: Int
+    public let language: [LanguageCodeType] = []
+    public let jsonAttributes: Int?
     public let jsonCallback: String?
     public let representation: [RouteRepresentationModeType] = []
     public let routeAttributes: [RouteAttributeType] = []
@@ -45,12 +45,12 @@ public class RouteCalculationRequest: Content {
     public let shippedHazardousGoods: [HazardousGoodTypeType] = []
     public let limitedWeight: Int?
     public let weightPerAxle: Int?
-    public let weightsPerAxleGroup: (TruckAxleGroupType, Int)?
+    public let weightsPerAxleGroup: [(TruckAxleGroupType, Int)]?
     public let height: Int?
     public let width: Int?
     public let length: Int?
     public let tunnelCategory: TunnelCategory?
-    public let truckRestrictionPenalty: TruckRestrictionPenalytyType?
+    public let truckRestrictionPenalty: TruckRestrictionPenaltyType?
     public let returnElevation: Bool?
     public let consumptionModel: ConsumptionModelType?
     public let customConsumptionDetails: ConsumptionModelDetailType?
@@ -90,21 +90,21 @@ extension RouteCalculationRequest: HereRequest {
                 res + "\(id),"
             }
             
-            parameters.dropLast()
+            let _ = parameters.dropLast()
         }
         
         if let avoidSeasonalClosures = self.avoidSeasonalClosures {
             parameters += "&avoidseasonalclosures=\(avoidSeasonalClosures)"
         }
         
-        if self.mode = .truck, self.avoidTurns.count > 0 {
+        if let transportMode = self.mode.transportMode, transportMode == .truck, self.avoidTurns.count > 0 {
             parameters += "&avoidturns="
             
             parameters += self.avoidTurns.reduce("") { (res, turn) in
-                res += "\(turn.rawValue),"
+                res + "\(turn.rawValue),"
             }
             
-            parameters.dropLast()
+            let _ = parameters.dropLast()
         }
         
         if let allowedZones = self.allowedZones {
@@ -163,20 +163,12 @@ extension RouteCalculationRequest: HereRequest {
             parameters += "&metricsystem=\(metricSystem.rawValue)"
         }
         
-        if self.viewBounds.count > 0 {
-            parameters += "&viewBounds="
-            
-            for bound in 0..<self.viewBounds.count {
-                if bound > 0 {
-                    parameters += ";"
-                }
-                
-                parameters += "\(self.viewBounds[bound].description)"
-            }
+        if let viewBounds = self.viewBounds {
+            parameters += "&viewBounds=\(viewBounds.description)"
         }
         
         if let resolution = self.resolution {
-            parameters += "&resolution=\(resolution.description)"
+            parameters += "&resolution=\(resolution.0):\(resolution.1)"
         }
         
         if let instructionFormat = self.instructionFormat {
@@ -190,7 +182,7 @@ extension RouteCalculationRequest: HereRequest {
                 res + "\(lang),"
             }
             
-            parameters.dropLast()
+            let _ = parameters.dropLast()
         }
         
         if let jsonAttributes = self.jsonAttributes {
@@ -205,20 +197,20 @@ extension RouteCalculationRequest: HereRequest {
             parameters += "&representation="
             
             parameters += self.representation.reduce("") { (res, rep) in
-                res + resp.rawValue
+                res + rep.rawValue
             }
             
-            parameters.dropLast()
+            let _ = parameters.dropLast()
         }
         
         if self.routeAttributes.count > 0 {
             parameters += "&routeattributes="
             
-            ulr += self.routeAttributes.reduce("") { (res, attr) in
+            parameters += self.routeAttributes.reduce("") { (res, attr) in
                 res + "\(attr.rawValue),"
             }
             
-            parameters.dropLast()
+            let _ = parameters.dropLast()
         }
         
         if self.legAttributes.count > 0 {
@@ -228,7 +220,7 @@ extension RouteCalculationRequest: HereRequest {
                 res + "\(leg.rawValue),"
             }
             
-            parameters.dropLast()
+            let _ = parameters.dropLast()
         }
         
         if self.maneuverAttributes.count > 0 {
@@ -238,7 +230,7 @@ extension RouteCalculationRequest: HereRequest {
                 res + "\(man.rawValue),"
             }
             
-            parameters.dropLast()
+            let _ = parameters.dropLast()
         }
         
         if self.linkAttributes.count > 0 {
@@ -248,7 +240,7 @@ extension RouteCalculationRequest: HereRequest {
                 res + "\(link.rawValue),"
             }
             
-            parameters.dropLast()
+            let _ = parameters.dropLast()
         }
         
         if self.lineAttributes.count > 0 {
@@ -258,7 +250,7 @@ extension RouteCalculationRequest: HereRequest {
                 res + "\(line.rawValue),"
             }
             
-            parameters.dropLast()
+            let _ = parameters.dropLast()
         }
         
         if self.generalizationTolerances.count > 0 {
@@ -268,7 +260,7 @@ extension RouteCalculationRequest: HereRequest {
                 res + "\(tol),"
             }
             
-            parameters.dropLast()
+            let _ = parameters.dropLast()
         }
         
         if let vehicleType = self.vehicleType {
@@ -290,7 +282,7 @@ extension RouteCalculationRequest: HereRequest {
                 res + "\(av.rawValue),"
             }
             
-            parameters.dropLast()
+            let _ = parameters.dropLast()
         }
         
         if let walkTimeMultiplier = self.walkTimeMultiplier {
@@ -328,7 +320,7 @@ extension RouteCalculationRequest: HereRequest {
                 res + "\(hg.rawValue),"
             }
             
-            parameters.dropLast()
+            let _ = parameters.dropLast()
         }
         
         if let limitedWeight = self.limitedWeight {
@@ -343,10 +335,10 @@ extension RouteCalculationRequest: HereRequest {
             parameters += "&weightsperaxlegroup="
             
             parameters += self.weightsPerAxleGroup.reduce("") { (res, wg) in
-                res + "\(wg.description);"
+                res + "\(wg.0.rawValue):\(wg.1);"
             }
             
-            parameters.dropLast()
+            let _ = parameters.dropLast()
         }
         
         if let height = self.height {

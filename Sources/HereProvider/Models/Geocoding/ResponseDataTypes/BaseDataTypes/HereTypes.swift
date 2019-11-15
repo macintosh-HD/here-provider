@@ -139,12 +139,32 @@ public struct UnsignedNumericRange: Content {
 public struct GeoCoordinateType: Codable {
     let latitude: LatitudeType
     let longitude: LongitudeType
-    let altitude: Double?
+    let altitude: AltitudeType?
+}
+
+extension GeoCoordinateType: CustomStringConvertible {
+    public var description: String {
+        var output = ""
+        
+        output += "\(self.latitude),\(self.longitude)"
+        
+        if let altitude = self.altitude {
+            output += ",\(altitude)"
+        }
+        
+        return output
+    }
 }
 
 public struct GeoBoundingBoxType: Codable {
     let topLeft: GeoCoordinateType
     let bottomRight: GeoCoordinateType
+}
+
+extension GeoBoundingBoxType: CustomStringConvertible {
+    public var description: String {
+        return "\(self.topLeft.description);\(self.bottomRight.description)"
+    }
 }
 
 public struct GeoProximityType: Codable {
