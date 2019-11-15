@@ -55,10 +55,6 @@ public enum DirectionType: String, Content {
     case  forward, bearRight, lightRight, right, hardRight, uTurnRight, uTurnLeft, hardLeft,left, lightLeft, bearLeft
 }
 
-public enum SideOfStreetType: String, Content {
-    case left, right, neither
-}
-
 public enum WaypointParameterTypeType: String, Content {
     case stopOver, passThrough
 }
