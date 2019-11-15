@@ -5,7 +5,7 @@ final class HereRoutingClient: Service {
     let appID: String
     let appCode: String
     
-    let format: HereFormat = .json
+    let format: HereFormats = .json
     
     let calculateRouteEndpoint = "https://route.api.here.com/routing/7.2/calculateroute."
     let getRouteEndpoint = "https://route.api.here.com/routing/7.2/getroute."
