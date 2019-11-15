@@ -21,14 +21,12 @@ public struct GeoWaypointParameterType: WaypointParameterType, Content {
         case passThrough
     }
     
-    public enum TransiRadiusType: Content {
-        case transitRadius(Int)
-        case empty
+    public struct TransiRadiusType: Content {
+        let radius: Int?
     }
     
-    public enum UserLabelType: Content {
-        case userLabel(String)
-        case empty
+    public struct UserLabelType: Content {
+        let label: String?
     }
 }
 
@@ -55,21 +53,15 @@ extension GeoWaypointParameterType: CustomStringConvertible {
         if let transitRadius = self.transitRadius {
             output += ";"
             
-            switch transitRadius {
-            case .transitRadius(radius):
+            if let radius = transitRadius.radius {
                 output += "\(radius)"
-            default:
-                continue
             }
             
             if let userLabel = self.userLabel {
                 output += ";"
                 
-                switch userLabel {
-                case .userLabel(label):
+                if let label = userLabel.label {
                     output += label
-                default:
-                    continue
                 }
                 
                 if let heading = self.heading {
