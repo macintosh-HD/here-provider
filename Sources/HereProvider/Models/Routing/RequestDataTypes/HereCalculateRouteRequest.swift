@@ -57,6 +57,8 @@ public struct RouteCalculationRequest: Content {
 
 extension RouteCalculationRequest: HereRequest {
     var requestParameters: String {
+        var parameters = ""
+        
         for waypoint in 0..<self.waypoints.count {
             parameters += "&waypoint\(waypoint)=\(self.waypoints[waypoint].description)"
         }
