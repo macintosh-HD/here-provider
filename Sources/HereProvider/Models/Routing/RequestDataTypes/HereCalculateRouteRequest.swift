@@ -58,7 +58,7 @@ public class RouteCalculationRequest: Content {
 }
 
 extension RouteCalculationRequest: HereRequest {
-    let requestParameters: String {
+    var requestParameters: String {
         var parameters = "?app_id=\(self.appId)&app_code=\(self.appCode)"
         
         for waypoint in 0..<self.waypoints.count {
