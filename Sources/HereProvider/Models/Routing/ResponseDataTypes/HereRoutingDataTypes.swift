@@ -262,7 +262,7 @@ public struct RouteType: Content {
 }
 
 public struct RouteLegType: Content {
-    public let start: WaypoinType
+    public let start: WaypointType
     public let end: WaypointType
     public let length: DistanceType
     public let travelTime: DurationTime
