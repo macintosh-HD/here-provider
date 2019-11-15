@@ -1,6 +1,6 @@
 import Vapor
 
-public struct VehicleType: CustomStringConvertible {
+public struct VehicleType: Content, CustomStringConvertible {
     public let engineType: EngineType
     public let averageConsumption: Int
     

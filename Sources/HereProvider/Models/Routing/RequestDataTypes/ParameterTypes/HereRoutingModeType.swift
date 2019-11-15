@@ -1,6 +1,6 @@
 import Vapor
 
-public struct RoutingModeType: CustomStringConvertible {
+public struct RoutingModeType: CustomStringConvertible, Content {
     public let type: RoutingTypeType
     public let transportMode: TransportModeType?
     public let trafficMode: TrafficModeType?
