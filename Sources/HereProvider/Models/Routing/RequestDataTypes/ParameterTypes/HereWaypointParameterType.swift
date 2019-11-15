@@ -83,15 +83,15 @@ public struct NavigationWaypointParameterTypeWithStreetPosition: WaypointParamet
     public let heading: HeadingType?
     public let transitRadius: Int?
     
-    public enum StreetParameterType: String {
+    public enum StreetParameterType: String, Content {
         case street = "street!"
     }
     
-    public enum NavigationWaypointParameterTypeType: String {
+    public enum NavigationWaypointParameterTypeType: String, Content {
         case stopOver, passThrough
     }
     
-    public struct StreetPositionType: CustomStringConvertible {
+    public struct StreetPositionType: Content, CustomStringConvertible {
         public let position: GeoCoordinateType
         public let name: String?
         
@@ -154,15 +154,15 @@ public struct NavigationWaypointParameterTypeWithLinkPosition: WaypointParameter
     public let userLabel: String?
     public let linkPosition: LinkPositionType
     
-    public enum LinkParameterType: String {
+    public enum LinkParameterType: String, Content {
         case link
     }
     
-    public enum NavigationWaypointParameterTypeType: String {
+    public enum NavigationWaypointParameterTypeType: String, Content {
         case stopOver, passThrough
     }
     
-    public struct LinkPositionType: CustomStringConvertible {
+    public struct LinkPositionType: Content, CustomStringConvertible {
         public let linkId: LinkIdType
         public let spot: Double?
         
