@@ -18,13 +18,13 @@ public final class HereProvider: Provider {
     }
     
     public func register(_ services: inout Services) throws {
-        services.register { (container) -> HereClient in
+        services.register { (container) -> HereGeocodingClient in
             let httpClient = try container.make(Client.self)
             let config = try container.make(HereConfig.self)
             return HereGeocodingClient(httpClient: httpClient, config: config)
         }
         
-        services.register { (container) -> HereClient in
+        services.register { (container) -> HereRoutingClient in
             let httpClient = try container.make(Client.self)
             let config = try container.make(HereConfig.self)
             return HereRoutingClient(httpClient: httpClient, config: config)
