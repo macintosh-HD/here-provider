@@ -1,4 +1,4 @@
-public class GeocodingRequest: HereGeocodeRequest {
+public struct GeocodingRequest: HereGeocodeRequest {
     let bbox: GeoBoundingBoxType
     let city: String
     let country: String

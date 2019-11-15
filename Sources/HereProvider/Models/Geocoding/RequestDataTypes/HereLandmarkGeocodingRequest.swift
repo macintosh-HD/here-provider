@@ -1,4 +1,4 @@
-public class LandmarkGeocodeRequest: GeocodingRequest {
+public struct LandmarkGeocodeRequest: GeocodingRequest {
     let categoryIds: Int
     let name: String
 }

@@ -1,3 +1,3 @@
-public class ReverseGeocodingRequest: MultiReverseGeocodeRequest {
+public struct ReverseGeocodingRequest: MultiReverseGeocodeRequest {
     let pos: Coordinate
 }
