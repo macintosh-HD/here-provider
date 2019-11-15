@@ -1,5 +1,7 @@
 import Vapor
 
+public typealias DurationType = TimeInterval
+
 // MARK: Enumeration Types
 public enum IncidentTypeType: String, Content {
     case accident, congestion, roadworks, closure, flow, other
