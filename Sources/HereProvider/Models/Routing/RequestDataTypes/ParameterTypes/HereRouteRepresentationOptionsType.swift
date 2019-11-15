@@ -61,7 +61,7 @@ public enum ManeuverAttributeType: String, Content {
     case freewayExit = "fe"
     case freewayJunction = "fj"
     case baseTime = "bt"
-    case trafficTime = "tt"
+    case trafficTime = "tm"
     case indices = "ix"
     case boundingBox = "bb"
     case roadShield = "rs"
