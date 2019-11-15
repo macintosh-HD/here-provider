@@ -1,8 +1,12 @@
 import Vapor
 
-public protocol ConsumptionModelType {}
+public enum ConsumptionModelType {
+    case `default`, standard
+}
 
-public struct StandardConsumptionModel: ConsumptionModelType, CustomStringConvertible {
+public protocol ConsomptionModelDetailType {}
+
+public struct StandardConsumptionModel: ConsomptionModelDetailType, CustomStringConvertible {
     public let speed: [Double]
     public let ascent: Double
     public let descent: Double
