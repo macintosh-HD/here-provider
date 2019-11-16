@@ -26,7 +26,12 @@ public struct CalculateMatrixRequest: Content {
     public let speedProfile: SpeedProfileType
 }
 
-public enum MatrixRouteSummaryAttributeType: String, Comparable {
+public enum MatrixRouteAttributeType: String, Content {
+    case indices = "ix"
+    case summary = "su"
+}
+
+public enum MatrixRouteSummaryAttributeType: String, Content {
     case traveltime = "tt"
     case costfactor = "cf"
     case distance = "di"

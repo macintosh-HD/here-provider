@@ -25,8 +25,11 @@ public struct CalculateIsolineRequest: Content {
     public let width: Int
     public let length: Int
     public let tunnelCategory: String
-    public let consumptionModel: ConsumptionModel
+    public let consumptionModel: ConsumptionModelType
     public let customConsumptionDetails: String
     public let speedProfile: SpeedProfileType
 }
 
+public enum RangeType: String, Content {
+    case distance, time, consumption
+}

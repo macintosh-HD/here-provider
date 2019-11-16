@@ -7,8 +7,8 @@ public struct GetRouteRequest: Content {
     public let requestId: String
     public let routeId: String
     public let mode: [RoutingModeType]
-    public let departure: Date
-    public let metricSystem: SystemOfMeasurement
+    public let departure: Date?
+    public let metricSystem: SystemOfMeasurementType
     public let viewBounds: GeoBoundingBoxType
     public let generalizationTolerances: [Double]
     public let instructionFormat: InstructionFormatType

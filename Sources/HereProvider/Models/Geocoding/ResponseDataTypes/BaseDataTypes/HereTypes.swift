@@ -5,8 +5,6 @@ public typealias DistanceType = Double
 
 public typealias HeadingType = Double
 
-public typealias CountryCodeType = String
-
 public typealias GeoShapeType = WKTShapeType
 
 public typealias FunctionalClassType = UInt8

@@ -41,5 +41,7 @@ public struct StandardConsumptionModel: ConsumptionModelDetailType, Content, Cus
         if let desceleration = deceleration {
             output += ";deceleration,\(deceleration)"
         }
+        
+        return output
     }
 }

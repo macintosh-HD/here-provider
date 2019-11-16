@@ -17,7 +17,7 @@ public enum TruckType: String, Content {
     case truck, tractorTruck
 }
 
-public enum LicensePlate: Int, Content {
+public enum LicensePlate: Content {
     case lastCharacter(Int)
 }
 

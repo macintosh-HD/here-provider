@@ -89,16 +89,16 @@ public enum TruckAxleGroupType: String, Content {
 
 // MARK: Link Information
 public protocol RouteLinkType: Content {
-    public let linkId: LinkIdType
-    public let shape: GeoPolylineType
-    public let firstPoint: Int
-    public let lastPoint: Int
-    public let length: DistanceType
-    public let remainDistance: DistanceType
-    public let remainTime: DurationType
-    public let nextLink: LinkIdType
-    public let maneuver: ElementReferenceType
-    public let timeDependentRestrictionRef: Int
+    var linkId: LinkIdType { get }
+    var shape: GeoPolylineType { get }
+    var firstPoint: Int { get }
+    var lastPoint: Int { get }
+    var length: DistanceType { get }
+    var remainDistance: DistanceType { get }
+    var remainTime: DurationType { get }
+    var nextLink: LinkIdType { get }
+    var maneuver: ElementReferenceType { get }
+    var timeDependentRestrictionRef: Int { get }
 }
 
 public struct PrivateTransportLinkType: RouteLinkType, Content {
@@ -183,20 +183,20 @@ public struct TruckRestrictionConditionType: Content {
 
 // MARK: Vehicle information
 public protocol ManeuverType: Content {
-    public let id: ElementReferenceType
-    public let position: GeoCoordianteType
-    public let instruction: String
-    public let travelTime: DurationType
-    public let length: DistanceType
-    public let shape: GeoPolylineType
-    public let firstPoint: Int
-    public let lastPoint: Int
-    public let time: Date
-    public let note: RouteNoteType
-    public let nextManeuver: ElementReferenceType
-    public let toLink: LinkIdType
-    public let boundingBox: GeoBoundingBoxType
-    public let shapeQuality: ShapeQualityType
+    var id: ElementReferenceType { get }
+    var position: GeoCoordianteType { get }
+    var instruction: String { get }
+    var travelTime: DurationType { get }
+    var length: DistanceType { get }
+    var shape: GeoPolylineType { get }
+    var firstPoint: Int { get }
+    var lastPoint: Int { get }
+    var time: Date { get }
+    var note: RouteNoteType { get }
+    var nextManeuver: ElementReferenceType { get }
+    var toLink: LinkIdType { get }
+    var boundingBox: GeoBoundingBoxType { get }
+    var shapeQuality: ShapeQualityType { get }
 }
 
 public struct PrivateTransportManeuverType: ManeuverType, Content {
@@ -406,6 +406,10 @@ public struct RouteMatrixEntryType: Content {
     public let destinationIndex: Int
     public let summary: RouteSummaryType
     public let status: RouteStatusType
+}
+
+public enum RouteStatusType: String, Content {
+    case rangeExceeded, failed
 }
 
 // MARK: RouteShapeReferenceType
