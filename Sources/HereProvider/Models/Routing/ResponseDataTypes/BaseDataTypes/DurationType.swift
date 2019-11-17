@@ -1,1 +1,1 @@
-public typealias DurationType = TimeInterval
+public typealias DurationType = Double
