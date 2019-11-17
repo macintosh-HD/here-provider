@@ -1,7 +1,7 @@
 import Vapor
 
 public struct PublicTransportLineType: Content {
-    public let id: ElementReferenceId
+    public let id: ElementReferenceType
     public let lineName: String
     public let lineForeground: String?
     public let lineBackground: String?
