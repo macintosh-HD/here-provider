@@ -88,7 +88,7 @@ public enum TruckAxleGroupType: String, Content {
 }
 
 // MARK: Link Information
-public struct RouteLinkType: Content {
+public class RouteLinkType: Content {
     public let linkId: LinkIdType
     public let shape: GeoPolylineType
     public let firstPoint: Int
@@ -101,7 +101,7 @@ public struct RouteLinkType: Content {
     public let timeDependentRestrictionRef: Int
 }
 
-public struct PrivateTransportLinkType: RouteLinkType, Content {
+public class PrivateTransportLinkType: RouteLinkType, Content {
     public let speedLimit: SpeedType
     public let dynamicSpeedInfo: DynamicSpeedInfoType
     public let flags: RouteLinkFlagType
@@ -113,7 +113,7 @@ public struct PrivateTransportLinkType: RouteLinkType, Content {
     public let consumption: Double
 }
 
-public struct PublicTransportLinkType: RouteLinkType, Content {
+public class PublicTransportLinkType: RouteLinkType, Content {
     public let nextStopName: String
     public let line: ElementReferenceType
 }
@@ -182,24 +182,24 @@ public struct TruckRestrictionConditionType: Content {
 }
 
 // MARK: Vehicle information
-public protocol ManeuverType: Content {
-    var id: ElementReferenceType { get }
-    var position: GeoCoordianteType { get }
-    var instruction: String { get }
-    var travelTime: DurationType { get }
-    var length: DistanceType { get }
-    var shape: GeoPolylineType { get }
-    var firstPoint: Int { get }
-    var lastPoint: Int { get }
-    var time: Date { get }
-    var note: RouteNoteType { get }
-    var nextManeuver: ElementReferenceType { get }
-    var toLink: LinkIdType { get }
-    var boundingBox: GeoBoundingBoxType { get }
-    var shapeQuality: ShapeQualityType { get }
+public class ManeuverType: Content {
+    public let id: ElementReferenceType
+    public let position: GeoCoordianteType
+    public let instruction: String
+    public let travelTime: DurationType
+    public let length: DistanceType
+    public let shape: GeoPolylineType
+    public let firstPoint: Int
+    public let lastPoint: Int
+    public let time: Date
+    public let note: RouteNoteType
+    public let nextManeuver: ElementReferenceType
+    public let toLink: LinkIdType
+    public let boundingBox: GeoBoundingBoxType
+    public let shapeQuality: ShapeQualityType
 }
 
-public struct PrivateTransportManeuverType: ManeuverType, Content {
+public class PrivateTransportManeuverType: ManeuverType, Content {
     public let direction: DirectionType
     public let action: PrivateTransportActionType
     public let roadName: String
@@ -215,7 +215,7 @@ public struct PrivateTransportManeuverType: ManeuverType, Content {
     public let startAngle: Int
 }
 
-public struct PublicTransportManeuverType: ManeuverType, Content {
+public class PublicTransportManeuverType: ManeuverType, Content {
     public let action: PublicTransportActionType
     public let stopName: String
     public let arrivalPlatform: String
@@ -291,7 +291,7 @@ public struct WaypointType: Content {
     public let shapeIndex: Int
 }
 
-public struct RouteSummaryType: Content {
+public class RouteSummaryType: Content {
     public let distance: DistanceType
     public let trafficTime: DurationType
     public let baseTime: DurationType?
@@ -303,7 +303,7 @@ public struct RouteSummaryType: Content {
     public let routeId: String?
 }
 
-public struct RouteSummaryByCountryType: RouteSummaryType, Content {
+public class RouteSummaryByCountryType: RouteSummaryType, Content {
     public let country: CountryCodeType
     public let tollRoadDistance: DistanceType
 }
@@ -395,7 +395,7 @@ public struct ManeuverGroupType: Content {
 }
 
 // MARK: PublicTransportRouteSummaryType
-public struct PublicTransportRouteSummaryType: RouteSummaryType, Content {
+public class PublicTransportRouteSummaryType: RouteSummaryType, Content {
     public let departure: Date
     public let publicTransportFlags: PublicTransportFlagType
 }
