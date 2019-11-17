@@ -16,7 +16,7 @@ public struct CalculateIsolineRequest: Content {
     public let quality: Int = 1
     public let jsonAttributes: Int
     public let jsonCallback: String
-    public let truckType: TruckType
+    public let truckType: TruckTypeType
     public let trailersCount: Int = 0
     public let shippedHazardousGoods: [HazardousGoodTypeType]
     public let limitedWeight: Int

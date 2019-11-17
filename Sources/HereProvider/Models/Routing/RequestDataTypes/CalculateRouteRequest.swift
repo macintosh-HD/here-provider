@@ -37,7 +37,7 @@ public struct RouteCalculationRequest: Content {
     public let walkSpeed: SpeedType?
     public let walkRadius: Int?
     public let combineChange: Bool?
-    public let truckType: TruckType?
+    public let truckType: TruckTypeType?
     public let trailersCount: Int?
     public let axleCount: Int?
     public let shippedHazardousGoods: [HazardousGoodTypeType] = []

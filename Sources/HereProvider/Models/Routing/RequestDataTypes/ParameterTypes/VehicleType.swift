@@ -13,7 +13,7 @@ public enum EngineType: String, Content {
     case diesel, gasoline, electric
 }
 
-public enum TruckType: String, Content {
+public enum TruckTypeType: String, Content {
     case truck, tractorTruck
 }
 

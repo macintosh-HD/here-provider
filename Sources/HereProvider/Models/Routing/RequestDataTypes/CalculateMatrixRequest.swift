@@ -14,7 +14,7 @@ public struct CalculateMatrixRequest: Content {
     public let departure: Date
     public let matrixAttributes: [MatrixRouteAttributeType]
     public let summaryAttributes: [MatrixRouteSummaryAttributeType]
-    public let truckType: TruckType
+    public let truckType: TruckTypeType
     public let trailersCount: Int = 0
     public let shippedHazardousGoods: [HazardousGoodTypeType]
     public let limitedWeight: Int
