@@ -1,6 +1,6 @@
 import Vapor
 
-public class RouteSummaryType: Content {
+public final class RouteSummaryType: Content {
     public let distance: DistanceType?
     public let trafficTime: DurationType?
     public let baseTime: DurationType?

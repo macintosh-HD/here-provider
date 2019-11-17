@@ -1,6 +1,6 @@
 import Vapor
 
-public class PublicTransportManeuverType: ManeuverType {
+public final class PublicTransportManeuverType: ManeuverType {
     public let action: PublicTransportActionType?
     public let stopName: String
     public let arrivalPlatform: String?

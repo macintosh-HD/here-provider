@@ -1,6 +1,6 @@
 import Vapor
 
-public class PublicTransportLinkType: RouteLinkType {
+public final class PublicTransportLinkType: RouteLinkType {
     public let nextStopName: String?
     public let line: ElementReferenceType?
     

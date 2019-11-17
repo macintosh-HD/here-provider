@@ -1,6 +1,6 @@
 import Vapor
 
-public class RouteSummaryByCountryType: RouteSummaryType {
+public final class RouteSummaryByCountryType: RouteSummaryType {
     public let country: CountryCodeType
     public let tollRoadDistance: DistanceType
     

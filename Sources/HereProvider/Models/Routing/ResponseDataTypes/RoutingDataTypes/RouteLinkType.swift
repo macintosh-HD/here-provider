@@ -1,6 +1,6 @@
 import Vapor
 
-public class RouteLinkType: Content {
+public final class RouteLinkType: Content {
     public let linkId: LinkIdType
     public let shape: GeoPolylineType?
     public let firstPoint: Int?

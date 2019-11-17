@@ -1,6 +1,6 @@
 import Vapor
 
-public class PublicTransportRouteSummaryType: RouteSummaryType {
+public final class PublicTransportRouteSummaryType: RouteSummaryType {
     public let departure: Date
     public let publicTransportFlags: PublicTransportFlagType
     

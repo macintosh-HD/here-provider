@@ -1,6 +1,6 @@
 import Vapor
 
-public class PrivateTransportLinkType: RouteLinkType {
+public final class PrivateTransportLinkType: RouteLinkType {
     public let speedLimit: SpeedType?
     public let dynamicSpeedInfo: DynamicSpeedInfoType?
     public let flags: RouteLinkFlagType?
