@@ -108,3 +108,7 @@ public enum PublicTransportLineAttributeType: String, Content {
     case systemId = "si"
     case stops = "st"
 }
+
+public enum InstructionFormatType: String, Content {
+    case text, html
+}
