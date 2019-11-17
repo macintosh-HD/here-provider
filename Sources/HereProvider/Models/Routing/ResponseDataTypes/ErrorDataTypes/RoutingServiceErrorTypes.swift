@@ -11,7 +11,7 @@ public class ServiceErrorType: Error {
     public let requestId: String?
     public let additionalData: [KeyValuePairType<String, String>]?
     
-    init(type: ServiceErrorTypeType?, subtype: String?, details: String, requestId: String?, additionalData: [KeyValuePairType<String, String>]?) {
+    init(type: ServiceErrorTypeType? = nil, subtype: String? = nil, details: String, requestId: String? = nil, additionalData: [KeyValuePairType<String, String>]? = nil) {
         self.type = type
         self.subtype = subtype
         self.details = details
@@ -23,7 +23,7 @@ public class ServiceErrorType: Error {
 public class RoutingServiceErrorType: ServiceErrorType {
     public let metaInfo: RouteResponseMetaInfoType?
     
-    init(type: ServiceErrorTypeType?, subtype: String?, details: String, requestId: String?, additionalData: [KeyValuePairType<String, String>]?, metaInfo: RouteResponseMetaInfoType?) {
+    init(type: ServiceErrorTypeType? = nil, subtype: String? = nil, details: String, requestId: String? = nil, additionalData: [KeyValuePairType<String, String>]? = nil, metaInfo: RouteResponseMetaInfoType? = nil) {
         super.init(type: type, subtype: subtype, details: details, requestId: requestId, additionalData: additionalData)
         
         self.metaInfo = metaInfo
