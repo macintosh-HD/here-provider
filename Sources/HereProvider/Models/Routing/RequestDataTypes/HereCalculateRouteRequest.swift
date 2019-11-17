@@ -146,11 +146,19 @@ extension RouteCalculationRequest: HereRequest {
         }
         
         if let departure = self.departure {
-            parameters += "&departure=\(departure)"
+            let formatter = ISO8601DateFormatter()
+            
+            let formattedDepature = formatter.string(from: departure)
+            
+            parameters += "&departure=\(formattedDepature)"
         }
         
         if let arrival = self.arrival {
-            parameters += "&arrival=\(arrival)"
+            let formatter = ISO8601DateFormatter()
+            
+            let formattedArrival = formatter.string(from: arrival)
+            
+            parameters += "&arrival=\(formattedArrival)"
         }
         
         if let alternatives = self.alternatives {
