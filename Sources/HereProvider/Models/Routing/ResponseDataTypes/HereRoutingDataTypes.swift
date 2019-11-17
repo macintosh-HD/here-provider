@@ -88,17 +88,17 @@ public enum TruckAxleGroupType: String, Content {
 }
 
 // MARK: Link Information
-public protocol RouteLinkType: Content {
-    var linkId: LinkIdType { get }
-    var shape: GeoPolylineType { get }
-    var firstPoint: Int { get }
-    var lastPoint: Int { get }
-    var length: DistanceType { get }
-    var remainDistance: DistanceType { get }
-    var remainTime: DurationType { get }
-    var nextLink: LinkIdType { get }
-    var maneuver: ElementReferenceType { get }
-    var timeDependentRestrictionRef: Int { get }
+public struct RouteLinkType: Content {
+    public let linkId: LinkIdType
+    public let shape: GeoPolylineType
+    public let firstPoint: Int
+    public let lastPoint: Int
+    public let length: DistanceType
+    public let remainDistance: DistanceType
+    public let remainTime: DurationType
+    public let nextLink: LinkIdType
+    public let maneuver: ElementReferenceType
+    public let timeDependentRestrictionRef: Int
 }
 
 public struct PrivateTransportLinkType: RouteLinkType, Content {
