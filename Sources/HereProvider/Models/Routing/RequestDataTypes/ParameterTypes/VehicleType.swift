@@ -26,15 +26,15 @@ extension LicensePlate: Content {
         case lastCharacter
     }
     
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        if let lastCharacterValue = try container.decodeIfPresent(type: Int.self, forKey: .lastCharacter) {
+        if let lastCharacterValue = try container.decodeIfPresent(Int.self, forKey: .lastCharacter) {
             self = .lastCharacter(lastCharacterValue)
         }
     }
     
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         var container = try encoder.container(keyedBy: CodingKeys.self)
         
         switch self {
