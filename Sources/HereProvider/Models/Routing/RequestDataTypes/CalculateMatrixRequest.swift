@@ -1,10 +1,10 @@
 import Vapor
 
-public struct CalculateMatrixRequest: Content {
+public struct CalculateMatrixRequest<T: WaypointParameterType>: Content {
     public let appId: String
     public let appCode: String
-    public let start: WaypointParameterType
-    public let destination: WaypointParameterType
+    public let start: T
+    public let destination: T
     public let mode: [RoutingModeType]
     public let searchRange: Int
     public let avoidAreas: [GeoBoundingBoxType]
