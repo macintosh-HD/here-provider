@@ -1,11 +1,11 @@
 import Vapor
 
-public struct CalculateIsolineRequest: Content {
+public struct CalculateIsolineRequest<T: WaypointParameterType>: Content {
     public let appId: String
     public let appCode: String
     public let requestId: String
-    public let start: WaypointParameterType
-    public let destination: WaypointParameterType
+    public let start: T
+    public let destination: T
     public let range: String
     public let rangeType: RangeType
     public let mode: [RoutingModeType]

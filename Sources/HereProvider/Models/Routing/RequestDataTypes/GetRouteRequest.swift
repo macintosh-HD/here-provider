@@ -1,9 +1,9 @@
 import Vapor
 
-public struct GetRouteRequest: Content {
+public struct GetRouteRequest<T: WaypointParameterType>: Content {
     public let appId: String
     public let appCode: String
-    public let waypoint: WaypointParameterType
+    public let waypoint: T
     public let requestId: String
     public let routeId: String
     public let mode: [RoutingModeType]

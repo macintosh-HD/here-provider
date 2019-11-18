@@ -1,7 +1,7 @@
 import Vapor
 
-public struct RouteCalculationRequest: Content {
-    public let waypoints: [WaypointParameterType]
+public struct RouteCalculationRequest<T: WaypointParameterType>: Content {
+    public let waypoints: [T]
     public let mode: RoutingModeType
     public let requestId: String?
     public let avoidAreas: [GeoBoundingBoxType] = []
