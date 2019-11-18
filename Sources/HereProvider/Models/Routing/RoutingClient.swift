@@ -2,7 +2,7 @@ import Vapor
 
 final class HereRoutingClient: Service {
     let httpClient: Client
-    let appID: String
+    let appId: String
     let appCode: String
     
     let format: HereFormats = .json
@@ -15,7 +15,7 @@ final class HereRoutingClient: Service {
         
     init(httpClient: Client, config: HereConfig) {
         self.httpClient = httpClient
-        self.appID = config.appId
+        self.appId = config.appId
         self.appCode = config.appCode
     }
     
