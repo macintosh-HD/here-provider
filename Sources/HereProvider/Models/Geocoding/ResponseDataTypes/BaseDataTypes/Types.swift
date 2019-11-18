@@ -54,11 +54,11 @@ public enum TextSemanticsType: String, Content {
     case synonym, exonym, unclassified
 }
 
-public enum DistanceUnitType: String, Codable {
+public enum DistanceUnitType: String, Content {
     case mi, km
 }
 
-public enum CardinalDirectionType: String, Codable {
+public enum CardinalDirectionType: String, Content {
     case north = "N"
     case east = "E"
     case south = "S"
@@ -69,55 +69,55 @@ public enum CardinalDirectionType: String, Codable {
     case northwest = "NW"
 }
 
-public enum SideOfStreetType: String, Codable {
+public enum SideOfStreetType: String, Content {
     case left, right, neither
 }
 
-public enum ShapeFormatType: String, Codable {
+public enum ShapeFormatType: String, Content {
     case WKT
 }
 
-public enum SpeedCategoryType: String, Codable {
+public enum SpeedCategoryType: String, Content {
     case SC1, SC2, SC3, SC4, SC5, SC6, SC7, SC8
 }
 
-public enum SpeedLimitUnitType: String, Codable {
+public enum SpeedLimitUnitType: String, Content {
     case mph, kph
 }
 
-public enum LinkFlagType: String, Codable {
+public enum LinkFlagType: String, Content {
     case ControlledAccess, MultiDigitized, Frontage, Paved, Ramp, Private, Tollway, PoiAccess, FourWheelDrive, ParkingLotRoad, CarpoolRoad, Reversible, ExpressLand
 }
 
-public enum LinkAccessFlagType: String, Codable {
+public enum LinkAccessFlagType: String, Content {
     case Automobiles, Buses, Taxis, Carpools, Pedestrians, Trucks, Deliveries, EmergencyVehicle, ThroughTraffic, Motorcycles
 }
 
-public enum RelationshipEnumType: String, Codable {
+public enum RelationshipEnumType: String, Content {
     case nearByDistanceMarker, nearByAddress, microPointAddress
 }
 
-public enum DrivingSideType: String, Codable {
+public enum DrivingSideType: String, Content {
     case left, right
 }
 
-public enum SystemOfMeasurementType: String, Codable {
+public enum SystemOfMeasurementType: String, Content {
     case imperial, metric
 }
 
-public enum LocationTypeType: String, Codable {
+public enum LocationTypeType: String, Content {
     case area, address, trail, park, lake, mountainPeek, volcano, river, golfCourse, industrialComplex, island, woodland, cemetery, canalWaterChannerl, bayHarbor, airport, hospital, sportsComplex, shoppingCentre, universityCollege, nativeAmericanReservation, railroad, militaryBase, parkingLot, parkingGarage, animalPark, beach, distanceMarker, point
 }
 
-public enum LocationMatchTypeType: String, Codable {
+public enum LocationMatchTypeType: String, Content {
     case pointAddress, interpolated
 }
 
-public enum MatchLevelType: String, Codable {
+public enum MatchLevelType: String, Content {
     case country, state, county, city, district, street, intersection, houseNumber, postalCode, landmark
 }
 
-public enum MatchCodeType: String, Codable {
+public enum MatchCodeType: String, Content {
     case exact, ambiguous, upHierarchy, ambiguousHierarchy
 }
 
@@ -134,7 +134,7 @@ public struct UnsignedNumericRange: Content {
 }
 
 // MARK: geometry types
-public struct GeoCoordinateType: Codable {
+public struct GeoCoordinateType: Content {
     let latitude: LatitudeType
     let longitude: LongitudeType
     let altitude: AltitudeType?
@@ -154,7 +154,7 @@ extension GeoCoordinateType: CustomStringConvertible {
     }
 }
 
-public struct GeoBoundingBoxType: Codable {
+public struct GeoBoundingBoxType: Content {
     let topLeft: GeoCoordinateType
     let bottomRight: GeoCoordinateType
 }
@@ -165,17 +165,17 @@ extension GeoBoundingBoxType: CustomStringConvertible {
     }
 }
 
-public struct GeoProximityType: Codable {
+public struct GeoProximityType: Content {
     let center: GeoCoordinateType
     let radius: Double
 }
 
-public struct GeoPositionType: Codable {
+public struct GeoPositionType: Content {
     let coordinate: GeoCoordinateType
     let heading: Double?
 }
 
-public struct WKTShapeType: Codable {
+public struct WKTShapeType: Content {
     let value: String
 }
 
@@ -184,12 +184,12 @@ public struct KeyValuePairType<X,Y>: Content where X: Content, Y: Content {
     let value: Y
 }
 
-public struct LocalizedNameType: Codable {
+public struct LocalizedNameType: Content {
     let value: String
     let language: String
 }
 
-public struct SpeedLimitType: Codable {
+public struct SpeedLimitType: Content {
     let value: Int
     let unit: SpeedLimitUnitType
 }
