@@ -1,6 +1,6 @@
 import Vapor
 
-public final class ManeuverType: Content {
+public class ManeuverType: Content {
     public let id: ElementReferenceType
     public let position: GeoCoordinateType?
     public let instruction: String
