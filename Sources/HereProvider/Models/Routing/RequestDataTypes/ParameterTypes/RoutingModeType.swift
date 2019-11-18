@@ -20,7 +20,7 @@ public struct RoutingModeType: CustomStringConvertible, Content {
         output += ";"
         
         if let routeFeature = routeFeature {
-            output += "\(routeFeature.0):\(routeFeature.1)"
+            output += routeFeature.description
         }
     }
 }
@@ -37,9 +37,13 @@ public enum TransportModeType: String, Content {
     case car, carHOV, pedestrian, publicTransport, publicTransportTimeTable, truck, bicycle
 }
 
-public struct FeatureType: Content {
+public struct FeatureType: Content, CustomStringConvertible {
     public let feature: RouteFeatureType
     public let weight: RouteFeatureWeightType = .normal
+    
+    public var description: String {
+        var output = "\(feature.rawValue):\(weight.rawValue)"
+    }
 }
 
 public enum RouteFeatureType: String, Content {
