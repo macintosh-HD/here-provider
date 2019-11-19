@@ -1,35 +1,18 @@
 import Vapor
 
-public class ManeuverType: Content {
-    public let id: ElementReferenceType
-    public let position: GeoCoordinateType?
-    public let instruction: String
-    public let travelTime: DurationType?
-    public let length: DistanceType?
-    public let shape: GeoPolylineType?
-    public let firstPoint: Int?
-    public let lastPoint: Int?
-    public let time: Date?
-    public let note: RouteNoteType?
-    public let nextManeuver: ElementReferenceType?
-    public let toLink: LinkIdType?
-    public let boundingBox: GeoBoundingBoxType?
-    public let shapeQuality: ShapeQualityType?
-    
-    init(id: ElementReferenceType, position: GeoCoordinateType?, instruction: String, travelTime: DurationType?, length: DistanceType?, shape: GeoPolylineType?, firstPoint: Int?, lastPoint: Int?, time: Date?, note: RouteNoteType?, nextManeuver: ElementReferenceType?, toLink: LinkIdType?, boundingBox: GeoBoundingBoxType?, shapeQuality: ShapeQualityType?) {
-        self.id = id
-        self.position = position
-        self.instruction = instruction
-        self.travelTime = travelTime
-        self.length = length
-        self.shape = shape
-        self.firstPoint = firstPoint
-        self.lastPoint = lastPoint
-        self.time = time
-        self.note = note
-        self.nextManeuver = nextManeuver
-        self.toLink = toLink
-        self.boundingBox = boundingBox
-        self.shapeQuality = shapeQuality
-    }
+public protocol ManeuverType: Content {
+    var id: ElementReferenceType { get }
+    var position: GeoCoordinateType? { get }
+    var instruction: String { get }
+    var travelTime: DurationType? { get }
+    var length: DistanceType? { get }
+    var shape: GeoPolylineType? { get }
+    var firstPoint: Int? { get }
+    var lastPoint: Int? { get }
+    var time: Date? { get }
+    var note: RouteNoteType? { get }
+    var nextManeuver: ElementReferenceType? { get }
+    var toLink: LinkIdType? { get }
+    var boundingBox: GeoBoundingBoxType? { get }
+    var shapeQuality: ShapeQualityType? { get }
 }
