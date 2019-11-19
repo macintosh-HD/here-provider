@@ -1,13 +1,17 @@
 import Vapor
 
-public final class RouteSummaryByCountryType: RouteSummaryType {
+public struct RouteSummaryByCountryType: RouteSummaryType {
+    // inherited properties
+    public let distance: DistanceType?
+    public let trafficTime: DurationType?
+    public let baseTime: DurationType?
+    public let flags: [RouteLinkFlagType]?
+    public let travelTime: DurationType?
+    public let text: String?
+    public let co2Emission: Double?
+    public let costFactor: Int?
+    public let routeId: String?
+    
     public let country: CountryCodeType
     public let tollRoadDistance: DistanceType
-    
-    init(distance: DistanceType?, trafficTime: DurationType?, baseTime: DurationType?, flags: [RouteLinkFlagType]?, travelTime: DurationType?, text: String?, co2Emission: Double?, costFactor: Int?, routeId: String?, country: CountryCodeType, tollRoadDistance: DistanceType) {
-        super.init(distance: distance, trafficTime: trafficTime, baseTime: baseTime, flags: flags, travelTime: travelTime, text: text, co2Emission: co2Emission, costFactor: costFactor, routeId: routeId)
-        
-        self.country = country
-        self.tollRoadDistance = tollRoadDistance
-    }
 }

@@ -1,9 +1,9 @@
 import Vapor
 
-public struct RouteMatrixEntryType: Content {
+public struct RouteMatrixEntryType<S: RouteSummaryType>: Content {
     public let startIndex: Int
     public let destinationIndex: Int
-    public let summary: RouteSummaryType
+    public let summary: S
     public let status: RouteStatusType
 }
 

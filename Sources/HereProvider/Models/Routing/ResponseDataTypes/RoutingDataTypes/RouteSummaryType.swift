@@ -12,7 +12,7 @@ public protocol RouteSummaryType: Content {
     var routeId: String? { get }
 }
 
-public struct RouteSummaryType: Content {
+public struct RouteSummaryTypeType: Content {
     public let distance: DistanceType?
     public let trafficTime: DurationType?
     public let baseTime: DurationType?

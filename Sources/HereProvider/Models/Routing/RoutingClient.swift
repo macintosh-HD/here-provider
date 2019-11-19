@@ -19,7 +19,7 @@ final class HereRoutingClient: Service {
         self.appCode = config.appCode
     }
     
-    func calculateRoute(_ input: RouteCalculationRequest) throws -> Future<CalculateRouteResponseType<T: ManeuverType>> {
+    func calculateRoute<W: WaypointParameterType, C: ConsumptionModelDetailType, M: ManeuverType, L: RouteLinkType, S: RouteSummaryType>(_ input: RouteCalculationRequest<W, C>) throws -> Future<CalculateRouteResponseType<M, L, S>> {
         let urlString = calculateRouteEndpoint + format.rawValue + "?app_id=\(appId)&app_code=\(appCode)" + input.requestParameters
         guard let requestURL = URL(string: urlString) else {
             throw Abort(.internalServerError, reason: "Could not create request URL.")
@@ -34,7 +34,7 @@ final class HereRoutingClient: Service {
         }
     }
     
-    func getRoute(_ input: GetRouteRequest) throws -> Future<GetRouteResponseType<T: ManeuverType>> {
+    func getRoute<W: WaypointParameterType, M: ManeuverType>(_ input: GetRouteRequest<W>) throws -> Future<GetRouteResponseType<M>> {
         
     }
     
@@ -42,11 +42,11 @@ final class HereRoutingClient: Service {
         
     }
     
-    func calculateIsoline(_ input: CalculateIsolineRequest) throws -> Future<CalculateIsolineResponseType> {
+    func calculateIsoline<W: WaypointParameterType>(_ input: CalculateIsolineRequest<W>) throws -> Future<CalculateIsolineResponseType> {
         
     }
     
-    func calculateMatrix(_ input: CalculateMatrixRequest) throws -> Future<CalculateMatricResponseType> {
+    func calculateMatrix<W: WaypointParameterType>(_ input: CalculateMatrixRequest<W>) throws -> Future<CalculateMatricResponseType> {
         
     }
 }

@@ -1,7 +1,7 @@
 import Vapor
 
-public struct RouteCalculationRequest<T: WaypointParameterType>: Content {
-    public let waypoints: [T]
+public struct RouteCalculationRequest<W: WaypointParameterType, C: ConsumptionModelDetailType>: Content {
+    public let waypoints: [W]
     public let mode: RoutingModeType
     public let requestId: String?
     public let avoidAreas: [GeoBoundingBoxType] = []
@@ -51,7 +51,7 @@ public struct RouteCalculationRequest<T: WaypointParameterType>: Content {
     public let truckRestrictionPenalty: TruckRestrictionPenaltyType?
     public let returnElevation: Bool?
     public let consumptionModel: ConsumptionModelType?
-    public let customConsumptionDetails: ConsumptionModelDetailType?
+    public let customConsumptionDetails: C?
     public let speedProfile: SpeedProfileType?
 }
 

@@ -1,6 +1,6 @@
 import Vapor
 
-public struct RouteLegType<T: ManeuverType>: Content {
+public struct RouteLegType<M: ManeuverType, L: RouteLinkType, S: RouteSummaryType>: Content {
     public let start: WaypointType?
     public let end: WaypointType?
     public let length: DistanceType?
@@ -13,6 +13,6 @@ public struct RouteLegType<T: ManeuverType>: Content {
     public let lastPoint: Int?
     public let trafficTime: DurationType?
     public let baseTime: DurationType?
-    public let summary: RouteSummaryType?
-    public let subLegSummary: [RouteSummaryType]?
+    public let summary: S?
+    public let subLegSummary: [S]?
 }
