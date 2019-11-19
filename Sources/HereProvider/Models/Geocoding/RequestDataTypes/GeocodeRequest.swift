@@ -1,4 +1,4 @@
- protocol HereGeocodeRequest {
+protocol HereGeocodeRequest {
     var additionalData: [KeyValuePairType<String, String>] { get }
     var addressAttributes: HereAddressAttributes { get }
     var appID: String { get }
