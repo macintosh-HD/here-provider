@@ -17,7 +17,7 @@ public struct RouteCalculationRequest<W: WaypointParameterType, C: ConsumptionMo
     public let alternatives: Int?
     public let metricSystem: SystemOfMeasurementType?
     public let viewBounds: GeoBoundingBoxType?
-    public let resolution: (UInt, UInt)?
+    public let resolution: ResoltionType?
     public let instructionFormat: InstructionFormatType?
     public let language: [LanguageCodeType] = []
     public let jsonAttributes: Int?
@@ -43,7 +43,7 @@ public struct RouteCalculationRequest<W: WaypointParameterType, C: ConsumptionMo
     public let shippedHazardousGoods: [HazardousGoodTypeType] = []
     public let limitedWeight: Int?
     public let weightPerAxle: Int?
-    public let weightsPerAxleGroup: [(TruckAxleGroupType, Int)] = []
+    public let weightsPerAxleGroup: [WeightPerAxleGroupType] = []
     public let height: Int?
     public let width: Int?
     public let length: Int?
@@ -385,4 +385,14 @@ extension RouteCalculationRequest: HereRequest {
         
         return parameters
     }
+}
+
+public struct ResoltionType: Content {
+    public let viewResolution: UInt
+    public let snapResolution: UInt
+}
+
+public struct WeightPerAxleGroupType: Content {
+    public let type: TruckAxleGroupType
+    public let weight: UInt
 }
