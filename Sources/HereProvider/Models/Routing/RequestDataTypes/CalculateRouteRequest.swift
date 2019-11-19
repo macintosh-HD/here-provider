@@ -146,7 +146,13 @@ extension RouteCalculationRequest: HereRequest {
         }
         
         if let departure = self.departure {
-            let formatter = ISO8601DateFormatter()
+            let formatter: Formatter
+            if #available(OSX 10.12, *) {
+                formatter = ISO8601DateFormatter()
+            } else {
+                formatter = DateFormatter()
+                formatter.dateFormat = "YYYY-MM-DD'T'hh:mm:sszzzzzz"
+            }
             
             let formattedDepature = formatter.string(from: departure)
             
@@ -154,7 +160,13 @@ extension RouteCalculationRequest: HereRequest {
         }
         
         if let arrival = self.arrival {
-            let formatter = ISO8601DateFormatter()
+            let formatter: Formatter
+            if #available(OSX 10.12, *) {
+                formatter = ISO8601DateFormatter()
+            } else {
+                formatter = DateFormatter()
+                formatter.dateFormat = "YYYY-MM-DD'T'hh:mm:sszzzzzz"
+            }
             
             let formattedArrival = formatter.string(from: arrival)
             
@@ -174,7 +186,7 @@ extension RouteCalculationRequest: HereRequest {
         }
         
         if let resolution = self.resolution {
-            parameters += "&resolution=\(resolution.0):\(resolution.1)"
+            parameters += "&resolution=\(resolution.viewResolution):\(resolution.snapResolution)"
         }
         
         if let instructionFormat = self.instructionFormat {
@@ -341,7 +353,7 @@ extension RouteCalculationRequest: HereRequest {
             parameters += "&weightsperaxlegroup="
             
             parameters += self.weightsPerAxleGroup.reduce("") { (res, wg) in
-                res + "\(wg.0.rawValue):\(wg.1);"
+                res + "\(wg.type.rawValue):\(wg.weight);"
             }
             
             let _ = parameters.dropLast()
