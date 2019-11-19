@@ -19,7 +19,7 @@ final class HereRoutingClient: Service {
         self.appCode = config.appCode
     }
     
-    func calculateRoute(_ input: RouteCalculationRequest) throws -> Future<CalculateRouteResponseType> {
+    func calculateRoute(_ input: RouteCalculationRequest) throws -> Future<CalculateRouteResponseType<T: ManeuverType>> {
         let urlString = calculateRouteEndpoint + format.rawValue + "?app_id=\(appId)&app_code=\(appCode)" + input.requestParameters
         guard let requestURL = URL(string: urlString) else {
             throw Abort(.internalServerError, reason: "Could not create request URL.")
@@ -34,7 +34,7 @@ final class HereRoutingClient: Service {
         }
     }
     
-    func getRoute(_ input: GetRouteRequest) throws -> Future<GetRouteResponseType> {
+    func getRoute(_ input: GetRouteRequest) throws -> Future<GetRouteResponseType<T: ManeuverType>> {
         
     }
     
