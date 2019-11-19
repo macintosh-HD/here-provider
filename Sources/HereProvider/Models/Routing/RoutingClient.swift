@@ -35,18 +35,62 @@ final class HereRoutingClient: Service {
     }
     
     func getRoute<W: WaypointParameterType, M: ManeuverType, L: RouteLinkType, S: RouteSummaryType>(_ input: GetRouteRequest<W>) throws -> Future<GetRouteResponseType<M, L, S>> {
+        let urlString = getRouteEndpoint + format.rawValue + "?app_id=\(appId)&app_code=\(appCode)" /* + input.requestParameters */
+        guard let requestURL = URL(string: urlString) else {
+            throw Abort(.internalServerError, reason: "Could not create request URL.")
+        }
         
+        return httpClient.get(requestURL).flatMap { response in
+            do {
+                return try response.content.decode(GetRouteResponseType.self)
+            } catch {
+                throw Abort(.internalServerError)
+            }
+        }
     }
     
     func getRoutingZones(_ input: GetRoutingZonesRequest) throws -> Future<GetRoutingZonesResponseType> {
+        let urlString = getRoutingZonesEndpoint + format.rawValue + "?app_id=\(appId)&app_code=\(appCode)" /* + input.requestParameters */
+        guard let requestURL = URL(string: urlString) else {
+            throw Abort(.internalServerError, reason: "Could not create request URL.")
+        }
         
+        return httpClient.get(requestURL).flatMap { response in
+            do {
+                return try response.content.decode(GetRoutingZonesResponseType.self)
+            } catch {
+                throw Abort(.internalServerError)
+            }
+        }
     }
     
     func calculateIsoline<W: WaypointParameterType>(_ input: CalculateIsolineRequest<W>) throws -> Future<CalculateIsolineResponseType> {
+        let urlString = calculateIsonlineEndpoint + format.rawValue + "?app_id=\(appId)&app_code=\(appCode)" /* + input.requestParameters */
+        guard let requestURL = URL(string: urlString) else {
+            throw Abort(.internalServerError, reason: "Could not create request URL.")
+        }
         
+        return httpClient.get(requestURL).flatMap { response in
+            do {
+                return try response.content.decode(CalculateIsolineResponseType.self)
+            } catch {
+                throw Abort(.internalServerError)
+            }
+        }
     }
     
     func calculateMatrix<W: WaypointParameterType, S: RouteSummaryType>(_ input: CalculateMatrixRequest<W>) throws -> Future<CalculateMatrixResponseType<S>> {
+        let urlString = calculateMatrixEndpoint + format.rawValue + "?app_id=\(appId)&app_code=\(appCode)" /* + input.requestParameters */
+        guard let requestURL = URL(string: urlString) else {
+            throw Abort(.internalServerError, reason: "Could not create request URL.")
+        }
         
+        return httpClient.get(requestURL).flatMap { response in
+            do {
+                return try response.content.decode(CalculateMatrixResponseType.self)
+            } catch {
+                throw Abort(.internalServerError)
+            }
+        }
     }
 }

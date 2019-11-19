@@ -24,8 +24,8 @@ public class RoutingServiceErrorType: ServiceErrorType {
     public let metaInfo: RouteResponseMetaInfoType?
     
     init(type: ServiceErrorTypeType? = nil, subtype: String? = nil, details: String, requestId: String? = nil, additionalData: [KeyValuePairType<String, String>]? = nil, metaInfo: RouteResponseMetaInfoType? = nil) {
-        super.init(type: type, subtype: subtype, details: details, requestId: requestId, additionalData: additionalData)
-        
         self.metaInfo = metaInfo
+        
+        super.init(type: type, subtype: subtype, details: details, requestId: requestId, additionalData: additionalData)
     }
 }
