@@ -44,7 +44,7 @@ public struct FeatureType: Content, CustomStringConvertible {
     public let weight: RouteFeatureWeightType = .normal
     
     public var description: String {
-        var output = "\(feature.rawValue):\(weight.rawValue)"
+        return "\(feature.rawValue):\(weight.rawValue)"
     }
 }
 
