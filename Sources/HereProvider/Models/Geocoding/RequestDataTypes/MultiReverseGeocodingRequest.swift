@@ -21,7 +21,7 @@ public class MultiReverseGeocodeRequest: HereGeocodeRequest {
     let mode: HereMode
     let sortBy: String
     
-    init(additionalData: [KeyValuePairType<String, String>], addressAttributes: HereAddressAttributes, appID: String, appCode: String, gen: Int, jsonAttributes: Int, jsonCallback: String, language: LanguageCodeType, locationAttributes: HereLocationAttributes, maxResults: Int, pageInformation: String, politicalView: String, prox: GeoProximityType, responseAttributes: HereResponseAttributes, strictLanguage: Bool, level: String, minResults: Int, mode: HereMode, sortBy: String) {
+    init(additionalData: [KeyValuePairType<String, String>], addressAttributes: HereAddressAttributes, appID: String, appCode: String, gen: Int, jsonAttributes: Int, jsonCallback: String, language: LanguageCodeType, locationAttributes: HereLocationAttributes, maxResults: Int, pageInformation: String, politicalView: String, prox: GeoProximityType, responseAttributes: HereResponseAttributes, strictLanguageMode: Bool, level: String, minResults: Int, mode: HereMode, sortBy: String) {
         self.additionalData = additionalData
         self.addressAttributes = addressAttributes
         self.appID = appID
