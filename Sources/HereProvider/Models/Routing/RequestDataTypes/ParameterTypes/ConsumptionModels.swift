@@ -19,9 +19,10 @@ public struct StandardConsumptionModel: ConsumptionModelDetailType, Content, Cus
         var output = ""
         
         output += "speed"
-        speed.map { value in
-            output += ",\(value)"
+        output += speed.reduce("") { (res, value) in
+            res + "\(value),"
         }
+        output.removeLast()
         
         output += ";ascent,\(ascent)"
         output += ";descent,\(descent)"
@@ -38,7 +39,7 @@ public struct StandardConsumptionModel: ConsumptionModelDetailType, Content, Cus
             output += ";acceleration,\(acceleration)"
         }
         
-        if let desceleration = deceleration {
+        if let deceleration = deceleration {
             output += ";deceleration,\(deceleration)"
         }
         

@@ -37,7 +37,7 @@ extension LicensePlate: Content {
     }
     
     public func encode(to encoder: Encoder) throws {
-        var container = try encoder.container(keyedBy: CodingKeys.self)
+        var container = encoder.container(keyedBy: CodingKeys.self)
         
         switch self {
         case .lastCharacter(let value):
