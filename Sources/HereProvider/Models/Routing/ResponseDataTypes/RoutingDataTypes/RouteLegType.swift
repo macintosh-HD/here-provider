@@ -1,11 +1,11 @@
 import Vapor
 
-public struct RouteLegType: Content {
+public struct RouteLegType<T: ManeuverType>: Content {
     public let start: WaypointType?
     public let end: WaypointType?
     public let length: DistanceType?
     public let travelTime: DurationType?
-    public let maneuver: [ManeuverType]?
+    public let maneuver: [T]?
     public let link: [RouteLinkType]?
     public let boundingBox: GeoBoundingBoxType?
     public let shape: GeoPolylineType?

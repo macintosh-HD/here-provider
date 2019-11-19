@@ -1,12 +1,12 @@
 import Vapor
 
-public struct RouteType: Content {
+public struct RouteType<T: ManeuverType>: Content {
     public let routeId: String?
     public let waypoint: [WaypointType]?
     public let mode: RoutingModeType
     public let shape: GeoPolylineType?
     public let boundingBox: GeoBoundingBoxType?
-    public let leg: [RouteLegType]?
+    public let leg: [RouteLegType<T>]?
     public let publicTransportLine: [PublicTransportLineType]?
     public let publicTransportTickets: [PublicTransportTicketsType]?
     public let note: [RouteNoteType]?

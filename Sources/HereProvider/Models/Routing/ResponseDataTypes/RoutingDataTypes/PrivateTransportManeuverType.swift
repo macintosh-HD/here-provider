@@ -1,6 +1,6 @@
 import Vapor
 
-public struct PrivateTransportManeuverType: ManeuverType {
+public struct PrivateTransportManeuverType {
     public let direction: DirectionType?
     public let action: PrivateTransportActionType?
     public let roadName: String?
@@ -14,4 +14,21 @@ public struct PrivateTransportManeuverType: ManeuverType {
     public let baseTime: DurationType?
     public let roadShield: RoadShieldType?
     public let startAngle: Int?
+}
+
+extension PrivateTransportManeuverType: ManeuverType {
+    public let id: ElementReferenceType
+    public let position: GeoCoordinateType?
+    public let instruction: String
+    public let travelTime: DurationType?
+    public let length: DistanceType?
+    public let shape: GeoPolylineType?
+    public let firstPoint: Int?
+    public let lastPoint: Int?
+    public let time: Date?
+    public let note: RouteNoteType?
+    public let nextManeuver: ElementReferenceType?
+    public let toLink: LinkIdType?
+    public let boundingBox: GeoBoundingBoxType?
+    public let shapeQuality: ShapeQualityType?
 }
