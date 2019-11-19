@@ -22,6 +22,8 @@ public struct RoutingModeType: CustomStringConvertible, Content {
         if let routeFeature = routeFeature {
             output += routeFeature.description
         }
+        
+        return output
     }
 }
 

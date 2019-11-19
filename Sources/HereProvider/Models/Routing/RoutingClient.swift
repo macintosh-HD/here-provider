@@ -34,7 +34,7 @@ final class HereRoutingClient: Service {
         }
     }
     
-    func getRoute<W: WaypointParameterType, M: ManeuverType>(_ input: GetRouteRequest<W>) throws -> Future<GetRouteResponseType<M>> {
+    func getRoute<W: WaypointParameterType, M: ManeuverType, L: RouteLinkType, S: RouteSummaryType>(_ input: GetRouteRequest<W>) throws -> Future<GetRouteResponseType<M, L, S>> {
         
     }
     
@@ -46,7 +46,7 @@ final class HereRoutingClient: Service {
         
     }
     
-    func calculateMatrix<W: WaypointParameterType>(_ input: CalculateMatrixRequest<W>) throws -> Future<CalculateMatricResponseType> {
+    func calculateMatrix<W: WaypointParameterType, S: RouteSummaryType>(_ input: CalculateMatrixRequest<W>) throws -> Future<CalculateMatrixResponseType<S>> {
         
     }
 }

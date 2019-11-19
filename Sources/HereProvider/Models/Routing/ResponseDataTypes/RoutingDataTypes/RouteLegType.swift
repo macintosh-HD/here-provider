@@ -5,8 +5,8 @@ public struct RouteLegType<M: ManeuverType, L: RouteLinkType, S: RouteSummaryTyp
     public let end: WaypointType?
     public let length: DistanceType?
     public let travelTime: DurationType?
-    public let maneuver: [T]?
-    public let link: [RouteLinkType]?
+    public let maneuver: [M]?
+    public let link: [L]?
     public let boundingBox: GeoBoundingBoxType?
     public let shape: GeoPolylineType?
     public let firstPoint: Int?

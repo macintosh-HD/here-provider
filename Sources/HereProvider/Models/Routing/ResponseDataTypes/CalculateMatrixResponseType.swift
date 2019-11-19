@@ -1,6 +1,6 @@
 import Vapor
 
-public struct CalculateMatricResponseType: Content {
+public struct CalculateMatrixResponseType<S: RouteSummaryType>: Content {
     public let metaInfo: RouteResponseMetaInfoType
-    public let matrixEntry: [RouteMatrixEntryType]
+    public let matrixEntry: [RouteMatrixEntryType<S>]
 }
