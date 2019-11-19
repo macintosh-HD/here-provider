@@ -1,4 +1,4 @@
-public struct GeocodingRequest: HereGeocodeRequest {
+public class GeocodingRequest: HereGeocodeRequest {
     // inherited properties
     let additionalData: [KeyValuePairType<String, String>]
     let addressAttributes: HereAddressAttributes
@@ -29,4 +29,16 @@ public struct GeocodingRequest: HereGeocodeRequest {
     let searchText: String
     let state: String
     let street: String
+    
+    init(additionalData: [KeyValuePairType<String, String>], addressAttributes: HereAddressAttributes, appID: String, appCode: String, gen: Int, jsonAttributes: Int, jsonCallback: String, language: LanguageCodeType, locationAttributes: HereLocationAttributes, maxResults: Int, pageInformation: String, politicalView: String, prox: GeoProximityType, responseAttributes: HereResponseAttributes, strictLanguage: Bool, bbox: GeoBoundingBoxType, city: String, country: String, countryFocus: String, county: String, district: String, houseNumber: String, locationId: String, mapView: GeoBoundingBoxType, postalCode: String, searchText: String, state: String, street: String) {
+        self.additionalData = additionalData
+        self.addressAttributes = addressAttributes
+        self.appID = appID
+        self.appCode = appCode
+        self.gen = gen
+        self.jsonAttributes = jsonAttributes
+        self.jsonCallback = jsonCallback
+        self.langugage = language
+        self.locationAttributes = locationAttributes
+    }
 }
