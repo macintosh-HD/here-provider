@@ -6,6 +6,13 @@ public struct RoutingModeType: CustomStringConvertible, Content {
     public let trafficMode: TrafficModeType?
     public let routeFeature: FeatureType?
     
+    public init(type: RoutingTypeType, transportMode: TransportModeType? = nil, trafficMode: TrafficModeType? = nil, routeFeature: FeatureType? = nil) {
+        self.type = type
+        self.transportMode = transportMode
+        self.trafficMode = trafficMode
+        self.routeFeature = routeFeature
+    }
+    
     public var description: String {
         var output = "\(type.rawValue);"
         
@@ -41,7 +48,12 @@ public enum TransportModeType: String, Content {
 
 public struct FeatureType: Content, CustomStringConvertible {
     public let feature: RouteFeatureType
-    public let weight: RouteFeatureWeightType = .normal
+    public let weight: RouteFeatureWeightType
+    
+    public init(feature: RouteFeatureType, weight: RouteFeatureWeightType = .normal) {
+        self.feature = feature
+        self.weight = weight
+    }
     
     public var description: String {
         return "\(feature.rawValue):\(weight.rawValue)"

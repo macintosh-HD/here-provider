@@ -4,6 +4,11 @@ public struct VehicleType: Content, CustomStringConvertible {
     public let engineType: EngineType
     public let averageConsumption: Int
     
+    public init(engineType: EngineType, averageConsumption: Int) {
+        self.engineType = engineType
+        self.averageConsumption = averageConsumption
+    }
+    
     public var description: String {
         return "\(engineType.rawValue),\(averageConsumption)"
     }
@@ -29,7 +34,7 @@ extension LicensePlate: Content {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        if let lastCharacterValue = try container.decodeIfPresent(Int.self, forKey: .lastCharacter) {
+        if let lastCharacterValue = try? container.decodeIfPresent(Int.self, forKey: .lastCharacter) {
             self = .lastCharacter(lastCharacterValue)
         } else {
             throw fatalError()

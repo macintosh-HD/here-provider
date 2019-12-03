@@ -447,9 +447,19 @@ extension RouteCalculationRequest: HereRequest {
 public struct ResoltionType: Content {
     public let viewResolution: UInt
     public let snapResolution: UInt
+    
+    public init(viewResolution: UInt, snapResolution: UInt) {
+        self.viewResolution = viewResolution
+        self.snapResolution = snapResolution
+    }
 }
 
 public struct WeightPerAxleGroupType: Content {
     public let type: TruckAxleGroupType
     public let weight: UInt
+    
+    public init(type: TruckAxleGroupType, weight: UInt) {
+        self.type = type
+        self.weight = weight
+    }
 }

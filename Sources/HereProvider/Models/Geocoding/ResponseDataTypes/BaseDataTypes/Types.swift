@@ -163,6 +163,11 @@ extension GeoCoordinateType: CustomStringConvertible {
 public struct GeoBoundingBoxType: Content {
     let topLeft: GeoCoordinateType
     let bottomRight: GeoCoordinateType
+    
+    public init(topLeft: GeoCoordinateType, bottomRight: GeoCoordinateType) {
+        self.topLeft = topLeft
+        self.bottomRight = bottomRight
+    }
 }
 
 extension GeoBoundingBoxType: CustomStringConvertible {
