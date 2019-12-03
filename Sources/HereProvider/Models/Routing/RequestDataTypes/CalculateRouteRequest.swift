@@ -4,14 +4,14 @@ public struct RouteCalculationRequest<W: WaypointParameterType, C: ConsumptionMo
     public let waypoints: [W]
     public let mode: RoutingModeType
     public let requestId: String?
-    public let avoidAreas: [GeoBoundingBoxType] = []
-    public let avoidLinks: [LinkIdType] = []
+    public let avoidAreas: [GeoBoundingBoxType]
+    public let avoidLinks: [LinkIdType]
     public let avoidSeasonalClosures: Bool?
-    public let avoidTurns: [TurnType] = []
+    public let avoidTurns: [TurnType]
     public let allowedZones: UInt?
-    public let excludeZones: [UInt] = []
-    public let excludeZoneType: [RoutingZoneTypeType] = []
-    public let excludeCountry: [CountryCodeType] = []
+    public let excludeZones: [UInt]
+    public let excludeZoneType: [RoutingZoneTypeType]
+    public let excludeCountry: [CountryCodeType]
     public let departure: Date?
     public let arrival: Date?
     public let alternatives: Int?
@@ -19,20 +19,20 @@ public struct RouteCalculationRequest<W: WaypointParameterType, C: ConsumptionMo
     public let viewBounds: GeoBoundingBoxType?
     public let resolution: ResoltionType?
     public let instructionFormat: InstructionFormatType?
-    public let language: [LanguageCodeType] = []
+    public let language: [LanguageCodeType]
     public let jsonAttributes: Int?
     public let jsonCallback: String?
-    public let representation: [RouteRepresentationModeType] = []
-    public let routeAttributes: [RouteAttributeType] = []
-    public let legAttributes: [RouteLegAttributeType] = []
-    public let maneuverAttributes: [ManeuverAttributeType] = []
-    public let linkAttributes: [RouteLinkAttributeType] = []
-    public let lineAttributes: [PublicTransportLineAttributeType] = []
-    public let generalizationTolerances: [Double] = []
+    public let representation: [RouteRepresentationModeType]
+    public let routeAttributes: [RouteAttributeType]
+    public let legAttributes: [RouteLegAttributeType]
+    public let maneuverAttributes: [ManeuverAttributeType]
+    public let linkAttributes: [RouteLinkAttributeType]
+    public let lineAttributes: [PublicTransportLineAttributeType]
+    public let generalizationTolerances: [Double]
     public let vehicleType: VehicleType?
     public let licensePlate: LicensePlate?
     public let maxNumberOfChanges: Int?
-    public let avoidTransportType: [PublicTransportTypeType] = []
+    public let avoidTransportType: [PublicTransportTypeType]
     public let walkTimeMultiplier: Double?
     public let walkSpeed: SpeedType?
     public let walkRadius: Int?
@@ -40,10 +40,10 @@ public struct RouteCalculationRequest<W: WaypointParameterType, C: ConsumptionMo
     public let truckType: TruckTypeType?
     public let trailersCount: Int?
     public let axleCount: Int?
-    public let shippedHazardousGoods: [HazardousGoodTypeType] = []
+    public let shippedHazardousGoods: [HazardousGoodTypeType]
     public let limitedWeight: Int?
     public let weightPerAxle: Int?
-    public let weightsPerAxleGroup: [WeightPerAxleGroupType] = []
+    public let weightsPerAxleGroup: [WeightPerAxleGroupType]
     public let height: Int?
     public let width: Int?
     public let length: Int?
@@ -53,6 +53,61 @@ public struct RouteCalculationRequest<W: WaypointParameterType, C: ConsumptionMo
     public let consumptionModel: ConsumptionModelType?
     public let customConsumptionDetails: C?
     public let speedProfile: SpeedProfileType?
+    
+    public init(waypoints: [W], mode: RoutingModeType, requestId: String? = nil, avoidAreas: [GeoBoundingBoxType] = [], avoidLinks: [LinkIdType] = [], avoidSeasonalClosures: Bool? = nil, avoidTurns: [TurnType] = [], allowedZones: UInt? = nil, excludeZones: [UInt] = [], excludeZoneType: [RoutingZoneTypeType] = [], excludeCountry: [CountryCodeType] = [], departure: Date? = nil, arrival: Date? = nil, alternatives: Int? = nil, metricSystem: SystemOfMeasurementType? = nil, viewBounds: GeoBoundingBoxType? = nil, resolution: ResoltionType? = nil, instructionFormat: InstructionFormatType? = nil, language: [LanguageCodeType] = [], jsonAttributes: Int? = nil, jsonCallback: String? = nil, representation: [RouteRepresentationModeType] = [], routeAttributes: [RouteAttributeType] = [], legAttributes: [RouteLegAttributeType] = [], maneuverAttributes: [ManeuverAttributeType] = [], linkAttributes: [RouteLinkAttributeType] = [], lineAttributes: [PublicTransportLineAttributeType] = [], generalizationTolerances: [Double] = [], vehicleType: VehicleType? = nil, licensePlate: LicensePlate? = nil, maxNumberOfChanges: Int? = nil, avoidTransportType: [PublicTransportTypeType] = [], walkTimeMultiplier: Double? = nil, walkSpeed: SpeedType? = nil, walkRadius: Int? = nil, combineChange: Bool? = nil, truckType: TruckTypeType? = nil, trailersCount: Int? = nil, axleCount: Int? = nil, shippedHazardousGoods: [HazardousGoodTypeType] = [], limitedWeight: Int? = nil, weightPerAxle: Int? = nil, weightsPerAxleGroup: [WeightPerAxleGroupType] = [], height: Int? = nil, width: Int? = nil, length: Int? = nil, tunnelCategory: TunnelCategory? = nil, truckRestrictionPenalty: TruckRestrictionPenaltyType? = nil, returnElevation: Bool? = nil, consumptionModel: ConsumptionModelType? = nil, customConsumptionDetails: C? = nil, speedProfile: SpeedProfileType? = nil) {
+        self.waypoints = waypoints
+        self.mode = mode
+        self.requestId = requestId
+        self.avoidAreas = avoidAreas
+        self.avoidLinks = avoidLinks
+        self.avoidSeasonalClosures = avoidSeasonalClosures
+        self.avoidTurns = avoidTurns
+        self.allowedZones = allowedZones
+        self.excludeZones = excludeZones
+        self.excludeZoneType = excludeZoneType
+        self.excludeCountry = excludeCountry
+        self.departure = departure
+        self.arrival = arrival
+        self.alternatives = alternatives
+        self.metricSystem = metricSystem
+        self.viewBounds = viewBounds
+        self.resolution = resolution
+        self.instructionFormat = instructionFormat
+        self.language = language
+        self.jsonAttributes = jsonAttributes
+        self.jsonCallback = jsonCallback
+        self.representation = representation
+        self.routeAttributes = routeAttributes
+        self.legAttributes = legAttributes
+        self.maneuverAttributes = maneuverAttributes
+        self.linkAttributes = linkAttributes
+        self.lineAttributes = lineAttributes
+        self.generalizationTolerances = generalizationTolerances
+        self.vehicleType = vehicleType
+        self.licensePlate = licensePlate
+        self.maxNumberOfChanges = maxNumberOfChanges
+        self.avoidTransportType = avoidTransportType
+        self.walkTimeMultiplier = walkTimeMultiplier
+        self.walkSpeed = walkSpeed
+        self.walkRadius = walkRadius
+        self.combineChange = combineChange
+        self.truckType = truckType
+        self.trailersCount = trailersCount
+        self.axleCount = axleCount
+        self.shippedHazardousGoods = shippedHazardousGoods
+        self.limitedWeight = limitedWeight
+        self.weightPerAxle = weightPerAxle
+        self.weightsPerAxleGroup = weightsPerAxleGroup
+        self.height = height
+        self.width = width
+        self.length = length
+        self.tunnelCategory = tunnelCategory
+        self.truckRestrictionPenalty = truckRestrictionPenalty
+        self.returnElevation = returnElevation
+        self.consumptionModel = consumptionModel
+        self.customConsumptionDetails = customConsumptionDetails
+        self.speedProfile = speedProfile
+    }
 }
 
 extension RouteCalculationRequest: HereRequest {
