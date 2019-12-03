@@ -210,19 +210,19 @@ public enum HereFormats: String {
     case json, xml
 }
 
-public struct Coordinate {
+public struct HereCoordinate {
     let lon: Double
     let lat: Double
     let bearing: Int = 0
 }
 
-extension Coordinate: CustomStringConvertible {
+extension HereCoordinate: CustomStringConvertible {
     public var description: String {
         return "\(lat.description),\(lon.description)"
     }
 }
 
-extension Coordinate: Content {}
+extension HereCoordinate: Content {}
 
 public enum HereMode: String {
     case retrieveAddresses, retrieveAreas, retrieveLandmarks, retrieveAll, trackPosition

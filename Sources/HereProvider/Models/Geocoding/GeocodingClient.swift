@@ -29,7 +29,7 @@ public final class HereGeocodingClient: Service {
         }
     }
     
-    public func reverseGeocode(coordinate: Coordinate, proxRadius: Int = 5, maxResults: Int = 1) throws -> Future<HereSearchResponse> {
+    public func reverseGeocode(coordinate: HereCoordinate, proxRadius: Int = 5, maxResults: Int = 1) throws -> Future<HereSearchResponse> {
         let requestURL = try createRequestURL(endpoint: reverseGeocodingEndpoint, format: .json, appID: appID, appCode: appCode, pos: coordinate, mode: .retrieveAddresses, proxRadius: proxRadius, maxResults: maxResults)
         
         return httpClient.get(requestURL).flatMap { response in
@@ -41,7 +41,7 @@ public final class HereGeocodingClient: Service {
         }
     }
     
-    private func createRequestURL(endpoint: String, format: HereFormats, appID: String, appCode: String, pos: Coordinate? = nil, mode: HereMode? = nil, proxRadius: Int? = nil, minResults: Int? = nil, maxResults: Int? = nil, addressAttributes: [HereAddressAttributes] = [], language: String? = nil, level: HereLevel? = nil, locationAttributes: [HereLocationAttributes] = [], responseAttributes: [HereResponseAttributes] = [], searchtext: String? = nil) throws -> URL {
+    private func createRequestURL(endpoint: String, format: HereFormats, appID: String, appCode: String, pos: HereCoordinate? = nil, mode: HereMode? = nil, proxRadius: Int? = nil, minResults: Int? = nil, maxResults: Int? = nil, addressAttributes: [HereAddressAttributes] = [], language: String? = nil, level: HereLevel? = nil, locationAttributes: [HereLocationAttributes] = [], responseAttributes: [HereResponseAttributes] = [], searchtext: String? = nil) throws -> URL {
         var urlString = endpoint + format.rawValue
         
         urlString += "?app_id=\(appID)&app_code=\(appCode)&jsonattributes=1"
