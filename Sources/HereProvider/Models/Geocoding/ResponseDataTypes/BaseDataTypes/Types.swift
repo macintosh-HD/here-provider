@@ -138,6 +138,12 @@ public struct GeoCoordinateType: Content {
     public let latitude: LatitudeType
     public let longitude: LongitudeType
     public let altitude: AltitudeType?
+    
+    public init(latitude: LatitudeType, longitude: LongitudeType, altitude: AltitudeType) {
+        self.latitude = latitude
+        self.longitude = longitude
+        self.altitude = altitude
+    }
 }
 
 extension GeoCoordinateType: CustomStringConvertible {

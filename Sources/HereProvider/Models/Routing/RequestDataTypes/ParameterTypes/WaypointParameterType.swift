@@ -4,13 +4,13 @@ public protocol WaypointParameterType: Content, CustomStringConvertible {}
 
 // MARK: GeoWaypointParameterType
 public struct GeoWaypointParameterType: WaypointParameterType, Content {
-    public let geo: GeoWaypointParameterComponentType?
-    public let type: GeoWaypointParameterComponentTypeType?
-    public let stopOverDuration: DurationType?
-    public let position: GeoCoordinateType
-    public let transitRadius: TransiRadiusType?
-    public let userLabel: UserLabelType?
-    public let heading: HeadingType?
+    let geo: GeoWaypointParameterComponentType?
+    let type: GeoWaypointParameterComponentTypeType?
+    let stopOverDuration: DurationType?
+    let position: GeoCoordinateType
+    let transitRadius: TransiRadiusType?
+    let userLabel: UserLabelType?
+    let heading: HeadingType?
     
     public init(geo: GeoWaypointParameterComponentType? = nil, type: GeoWaypointParameterComponentTypeType? = nil, stopOverDuration: DurationType? = nil, position: GeoCoordinateType, transitRadius: TransiRadiusType? = nil, userLabel: UserLabelType? = nil, heading: HeadingType? = nil) {
         self.geo = geo
@@ -33,10 +33,18 @@ public struct GeoWaypointParameterType: WaypointParameterType, Content {
     
     public struct TransiRadiusType: Content {
         let radius: Int?
+        
+        public init(radius: Int? = nil) {
+            self.radius = radius
+        }
     }
     
     public struct UserLabelType: Content {
         let label: String?
+        
+        public init(label: String? = nil) {
+            self.label = label
+        }
     }
 }
 
