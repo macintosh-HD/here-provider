@@ -213,7 +213,13 @@ public enum HereFormats: String {
 public struct HereCoordinate {
     let lon: Double
     let lat: Double
-    let bearing: Int = 0
+    let bearing: Int
+    
+    public init(lon: Double, lat: Double, bearing: Int = 0) {
+        self.lon = lon
+        self.lat = lat
+        self.bearing = bearing
+    }
 }
 
 extension HereCoordinate: CustomStringConvertible {
