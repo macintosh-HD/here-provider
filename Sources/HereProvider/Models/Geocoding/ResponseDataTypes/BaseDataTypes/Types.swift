@@ -135,9 +135,9 @@ public struct UnsignedNumericRange: Content {
 
 // MARK: geometry types
 public struct GeoCoordinateType: Content {
-    let latitude: LatitudeType
-    let longitude: LongitudeType
-    let altitude: AltitudeType?
+    public let latitude: LatitudeType
+    public let longitude: LongitudeType
+    public let altitude: AltitudeType?
 }
 
 extension GeoCoordinateType: CustomStringConvertible {
