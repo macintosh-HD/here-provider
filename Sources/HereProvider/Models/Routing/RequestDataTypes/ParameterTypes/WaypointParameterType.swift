@@ -12,6 +12,16 @@ public struct GeoWaypointParameterType: WaypointParameterType, Content {
     public let userLabel: UserLabelType?
     public let heading: HeadingType?
     
+    public init(geo: GeoWaypointParameterComponentType? = nil, type: GeoWaypointParameterComponentTypeType? = nil, stopOverDuration: DurationType? = nil, position: GeoCoordinateType, transitRadius: TransiRadiusType? = nil, userLabel: UserLabelType? = nil, heading: HeadingType? = nil) {
+        self.geo = geo
+        self.type = type
+        self.stopOverDuration = stopOverDuration
+        self.position = position
+        self.transitRadius = transitRadius
+        self.userLabel = userLabel
+        self.heading = heading
+    }
+    
     public enum GeoWaypointParameterComponentType: String, Content {
         case geo = "geo!"
     }
