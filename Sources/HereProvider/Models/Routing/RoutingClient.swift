@@ -1,6 +1,6 @@
 import Vapor
 
-final class HereRoutingClient: Service {
+public final class HereRoutingClient: Service {
     let httpClient: Client
     let appId: String
     let appCode: String
