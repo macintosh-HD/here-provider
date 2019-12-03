@@ -139,7 +139,7 @@ public struct GeoCoordinateType: Content {
     public let longitude: LongitudeType
     public let altitude: AltitudeType?
     
-    public init(latitude: LatitudeType, longitude: LongitudeType, altitude: AltitudeType?) {
+    public init(latitude: LatitudeType, longitude: LongitudeType, altitude: AltitudeType? = nil) {
         self.latitude = latitude
         self.longitude = longitude
         self.altitude = altitude
