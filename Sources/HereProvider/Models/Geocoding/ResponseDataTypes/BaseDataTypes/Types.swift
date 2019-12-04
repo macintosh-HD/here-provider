@@ -210,7 +210,7 @@ public enum HereFormats: String {
     case json, xml
 }
 
-public struct HereCoordinate {
+public struct HereCoordinate: Content {
     public let lon: Double
     public let lat: Double
     public let bearing: Int
