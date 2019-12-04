@@ -211,9 +211,9 @@ public enum HereFormats: String {
 }
 
 public struct HereCoordinate {
-    let lon: Double
-    let lat: Double
-    let bearing: Int
+    public let lon: Double
+    public let lat: Double
+    public let bearing: Int
     
     public init(lon: Double, lat: Double, bearing: Int = 0) {
         self.lon = lon
