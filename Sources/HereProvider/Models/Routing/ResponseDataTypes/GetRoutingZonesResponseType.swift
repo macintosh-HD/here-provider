@@ -1,6 +1,6 @@
 import Vapor
 
-public struct GetRoutingZonesResponseType: Content {
+public struct GetRoutingZonesResponseType: HereRoutingResponseType {
     public let metaInfo: RouteResponseMetaInfoType
     public let zone: [RoutingZoneType]
 }
