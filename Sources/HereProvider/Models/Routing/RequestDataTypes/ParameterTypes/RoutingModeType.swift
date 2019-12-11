@@ -17,14 +17,12 @@ public struct RoutingModeType: CustomStringConvertible, Content {
         var output = "\(type.rawValue);"
         
         if let transportMode = transportMode {
-            output += transportMode.rawValue
+            output += "\(transportMode.rawValue);"
         }
-        output += ";"
         
         if let trafficMode = trafficMode {
-            output += "traffic:\(trafficMode.rawValue)"
+            output += "traffic:\(trafficMode.rawValue);"
         }
-        output += ";"
         
         if let routeFeature = routeFeature {
             output += routeFeature.description
