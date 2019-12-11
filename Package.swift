@@ -24,6 +24,6 @@ let package = Package(
             dependencies: ["Vapor"]),
         .testTarget(
             name: "HereProviderTests",
-            dependencies: ["Vapor", "HereProvider"]),
+            dependencies: ["HereProvider"]),
     ]
 )
