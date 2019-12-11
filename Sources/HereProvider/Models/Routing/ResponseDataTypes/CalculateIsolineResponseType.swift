@@ -1,6 +1,6 @@
 import Vapor
 
-public struct CalculateIsolineResponseType: Content {
+public struct CalculateIsolineResponseType: HereRoutingResponseType {
     public let metaInfo: RouteResponseMetaInfoType
     public let center: GeoCoordinateType
     public let isoline: IsolineType
