@@ -19,7 +19,7 @@ public final class HereRoutingClient: Service {
         self.appCode = config.appCode
     }
     
-    public func calculateRoute<W: WaypointParameterType, C: ConsumptionModelDetailType, M: ManeuverType, L: RouteLinkType, S: RouteSummaryType>(_ input: RouteCalculationRequest<W, C>) throws -> Future<HereRoutingResponse<CalculateRouteResponseType<M, L, S>>> {
+    public func calculateRoute<W: WaypointParameterType, C: ConsumptionModelDetailType, M: ManeuverType, L: RouteLinkType, S: RouteSummaryType>(_ input: RouteCalculationRequest<W, C>) throws -> Future<HereRoutingResponse<CalculateRouteResponseType<M, L, S>>?> {
         let urlString = calculateRouteEndpoint + format.rawValue + "?app_id=\(appId)&app_code=\(appCode)" + input.requestParameters
         guard let requestURL = URL(string: urlString) else {
             throw Abort(.internalServerError, reason: "Could not create request URL.")
@@ -27,7 +27,7 @@ public final class HereRoutingClient: Service {
         
         return httpClient.get(requestURL).flatMap { response in
             guard response.http.status == .ok else {
-                return try response.content.decode(InvalidInputData.self).flatMap { error in
+                return try response.content.decode(RoutingServiceError.self).flatMap { error in
                     var possibleCauses = [String]()
                     if let additionalData = error.additionalData {
                         possibleCauses = additionalData.map { data in
@@ -35,13 +35,21 @@ public final class HereRoutingClient: Service {
                         }
                     }
                     
-                    throw Abort(response.http.status, reason: error.details, possibleCauses: possibleCauses)
-                }.catchMap { error in
-                    throw Abort(response.http.status)
+                    switch error.type {
+                    case .ApplicationError:
+                        switch error.subtype {
+                        case "NoRouteFound":
+                            return self.httpClient.container.future(nil)
+                        default:
+                            throw Abort(response.http.status, reason: error.details, possibleCauses: possibleCauses)
+                        }
+                    default:
+                        throw Abort(response.http.status, reason: error.details, possibleCauses: possibleCauses)
+                    }
                 }
             }
             
-            return try response.content.decode(HereRoutingResponse.self).catchMap { error in
+            return try response.content.decode(HereRoutingResponse?.self).catchMap { error in
                 throw Abort(.internalServerError, reason: "Could not decode route response.")
             }
         }

@@ -34,11 +34,12 @@ extension LicensePlate: Content {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        if let lastCharacterValue = try? container.decodeIfPresent(Int.self, forKey: .lastCharacter) {
-            self = .lastCharacter(lastCharacterValue)
-        } else {
-            throw fatalError()
+        guard let lastCharacterValue = try container.decodeIfPresent(Int.self, forKey: .lastCharacter) else {
+            let context = DecodingError.Context(codingPath: [CodingKeys.lastCharacter], debugDescription: "No last character found for license plate.")
+            throw DecodingError.valueNotFound(Int.self, context)
         }
+        
+        self = .lastCharacter(lastCharacterValue)
     }
     
     public func encode(to encoder: Encoder) throws {
