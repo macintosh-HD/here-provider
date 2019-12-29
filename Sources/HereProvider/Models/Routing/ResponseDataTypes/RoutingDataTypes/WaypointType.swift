@@ -9,6 +9,6 @@ public struct WaypointType: Content {
     public let sideOfStreet: SideOfStreetType
     public let mappedRoadName: String
     public let label: String
-    public let userLabel: String
+    public let userLabel: String?
     public let shapeIndex: Int
 }

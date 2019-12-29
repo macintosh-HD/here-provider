@@ -9,7 +9,7 @@ public enum LineStyleType: String, Content {
 }
 
 public enum RouteLinkFlagType: String, Content {
-    case boatFerry, HOVLane, dirtRoad, motorway, noThroughRoad, park, railFerry, privateRoad, tollroad, tunnel, builUpArea
+    case boatFerry, HOVLane, dirtRoad, motorway, noThroughRoad, park, railFerry, privateRoad, tollroad, tunnel, builtUpArea
 }
 
 public enum PublicTransportFlagType: String, Content {
